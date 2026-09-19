@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PhD Opportunities Abroad â€” Sociology Â· Social Work Â· Buddhist Studies</title>
+<style>
+  :root {
+    --bg:#0e1117; --card:#161b26; --card2:#1c2333; --line:#2a3245;
+    --text:#e6e9f0; --dim:#9aa4b8; --acc:#5b9dff; --acc2:#8f7bff;
+    --ok:#3fbf7f; --warn:#e0a94e; --bad:#e06c6c;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--text);font-family:-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.55;padding:32px 20px 80px}
+  .wrap{max-width:1100px;margin:0 auto}
+  h1{font-size:1.7rem;margin-bottom:4px}
+  h1 span{background:linear-gradient(90deg,var(--acc),var(--acc2));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .sub{color:var(--dim);margin-bottom:26px;font-size:.95rem}
+  .tabs{display:flex;gap:8px;margin-bottom:22px;flex-wrap:wrap}
+  .tab{padding:10px 18px;border-radius:10px;border:1px solid var(--line);background:var(--card);color:var(--dim);cursor:pointer;font-size:.95rem;font-weight:600}
+  .tab.active{background:var(--card2);color:var(--text);border-color:var(--acc)}
+  .panel{display:none}.panel.active{display:block}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px;margin-bottom:20px}
+  .card h2{font-size:1.1rem;margin-bottom:6px}
+  .hint{color:var(--dim);font-size:.86rem;margin-bottom:14px}
+  .ctabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px}
+  .ctab{padding:6px 12px;border-radius:8px;border:1px solid var(--line);background:transparent;color:var(--dim);cursor:pointer;font-size:.82rem}
+  .ctab.active{color:var(--text);border-color:var(--acc2);background:rgba(143,123,255,.08)}
+  .cgroup{display:none}.cgroup.active{display:block}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(215px,1fr));gap:10px}
+  a.btn{display:block;padding:12px 14px;border-radius:10px;text-decoration:none;background:var(--card2);border:1px solid var(--line);color:var(--text);font-size:.88rem;transition:border-color .15s,transform .15s}
+  a.btn:hover{border-color:var(--acc);transform:translateY(-1px)}
+  a.btn small{display:block;color:var(--dim);font-size:.74rem;margin-top:3px}
+  .uni-list{list-style:none}
+  .uni-list li{padding:8px 0;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap}
+  .uni-list li:last-child{border-bottom:none}
+  .uni-name{font-weight:600;font-size:.9rem}
+  .uni-note{color:var(--dim);font-size:.76rem;display:block}
+  a.plain{color:var(--acc);text-decoration:none;font-size:.82rem;white-space:nowrap}
+  a.plain:hover{text-decoration:underline}
+  h3.sec{margin:26px 0 12px;font-size:.85rem;text-transform:uppercase;letter-spacing:.08em;color:var(--dim)}
+  .note{background:rgba(224,169,78,.08);border:1px solid rgba(224,169,78,.35);border-radius:10px;padding:12px 14px;font-size:.83rem;color:#e8cf9e;margin-top:14px}
+  table{width:100%;border-collapse:collapse;font-size:.87rem}
+  th{color:var(--dim);text-align:left;font-size:.74rem;text-transform:uppercase;letter-spacing:.06em;padding:8px 10px;border-bottom:1px solid var(--line)}
+  td{padding:10px;border-bottom:1px solid var(--line);vertical-align:top}
+  tr:last-child td{border-bottom:none}
+  .badge{display:inline-block;padding:2px 9px;border-radius:99px;font-size:.68rem;font-weight:700;margin-right:6px;vertical-align:middle}
+  .b-verified{background:rgba(63,191,127,.15);color:var(--ok);border:1px solid rgba(63,191,127,.4)}
+  .b-typical{background:rgba(224,169,78,.12);color:var(--warn);border:1px solid rgba(224,169,78,.4)}
+  .b-closed{background:rgba(224,108,108,.12);color:var(--bad);border:1px solid rgba(224,108,108,.4)}
+  .days{color:var(--dim);font-size:.76rem;display:block;margin-top:2px}
+  .soon{color:var(--warn);font-weight:700}
+  .pill{display:inline-block;padding:2px 8px;border-radius:99px;font-size:.68rem;background:var(--card2);border:1px solid var(--line);color:var(--dim);margin-left:6px;vertical-align:middle}
+  code{background:var(--card2);padding:2px 7px;border-radius:6px;font-size:.82rem;color:var(--ok)}
+  #feedResults .job{padding:9px 0;border-bottom:1px solid var(--line)}
+  #feedResults .job:last-child{border-bottom:none}
+  #feedResults a{color:var(--acc);text-decoration:none;font-size:.88rem}
+  #feedResults a:hover{text-decoration:underline}
+  #feedResults .meta{color:var(--dim);font-size:.74rem}
+  .follow-list{list-style:none}
+  .follow-list li{padding:9px 0;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap}
+  .follow-list li:last-child{border-bottom:none}
+  .follow-list .name{font-weight:600;font-size:.9rem}
+  .follow-list .why{color:var(--dim);font-size:.78rem;display:block}
+  .country-h{margin:16px 0 8px;font-size:.8rem;text-transform:uppercase;letter-spacing:.07em;color:var(--acc2)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>PhD Opportunities <span>Abroad</span></h1>
+  <p class="sub">Sociology Â· Social Work Â· Buddhist Studies â€” UK Â· US Â· Germany Â· Japan. Scholarships, sponsorships, universities, faculties, live feeds & LinkedIn follows. Deadlines verified 19 Sep 2026.</p>
+
+  <div class="tabs" id="tabs">
+    <button class="tab active" data-d="sociology">Sociology</button>
+    <button class="tab" data-d="socialwork">Social Work</button>
+    <button class="tab" data-d="buddhist">Buddhist Studies</button>
+  </div>
+
+  <!-- Panels are built by JS -->
+  <div id="panels"></div>
+
+  <!-- ============ SCHOLARSHIPS & SPONSORSHIPS ============ -->
+  <h3 class="sec">ðŸŽ“ Scholarships & sponsorships â€” global (all three disciplines)</h3>
+  <div class="card">
+    <h2>Scholarships â€” verified & recurring deadlines</h2>
+    <p class="hint">âœ“ = deadline verified from the official page. ~ = recurring cycle, confirm exact date on the page before planning.</p>
+    <table id="schTable">
+      <thead><tr><th>Programme</th><th>Country</th><th>Deadline</th><th></th></tr></thead>
+      <tbody></tbody>
+    </table>
+    <div class="note">ðŸ’¡ <b>â€œSponsorshipâ€</b> in academia means being hired as a <b>paid employee</b>: UK studentships tied to projects, US RA/TA packages bundled with admission, German TV-L E13 contracts (65â€“100%), Japanese TA/research-assistant grants. The university links above lead directly to those funded openings â€” apply there like a job application.</div>
+  </div>
+
+  <!-- ============ SPECIALIST BOARDS ============ -->
+  <h3 class="sec">ðŸ“¿ Specialist boards & networks</h3>
+  <div class="card">
+    <ul class="follow-list">
+      <li><span class="name">H-Net: H-Buddhism<span class="why">Scholar-run network â€” jobs, fellowships & grants for Buddhist studies</span></span><a class="plain" href="https://networks.h-net.org/h-buddhism" target="_blank" rel="noopener">Open â†—</a></li>
+      <li><span class="name">H-Net Job Guide<span class="why">Academic jobs & fellowships incl. religion fields (US-heavy)</span></span><a class="plain" href="https://networks.h-net.org/jobguide" target="_blank" rel="noopener">Open â†—</a></li>
+      <li><span class="name">Mangalam Research Center<span class="why">Buddhist-studies research positions & programs (US)</span></span><a class="plain" href="https://mangalamresearch.org/" target="_blank" rel="noopener">Open â†—</a></li>
+      <li><span class="name">European Sociological Association<span class="why">Jobs & fellowships across Europe â€” sociology & social work</span></span><a class="plain" href="https://www.europeansociology.org/opportunities/jobs-fellowships" target="_blank" rel="noopener">Open â†—</a></li>
+      <li><span class="name">GADE â€” Doctoral Ed. in Social Work<span class="why">US network of social-work doctoral programmes & funding</span></span><a class="plain" href="https://www.gadephd.org/" target="_blank" rel="noopener">Open â†—</a></li>
+      <li><span class="name">EURAXESS<span class="why">EU-wide research job search (all disciplines)</span></span><a class="plain" href="https://euraxess.ec.europa.eu/jobs/search?keywords=sociology" target="_blank" rel="noopener">Open â†—</a></li>
+    </ul>
+  </div>
+
+  <!-- ============ LINKEDIN ============ -->
+  <h3 class="sec">ðŸ“Œ Follow on LinkedIn â€” click, then hit Follow</h3>
+  <div class="card">
+    <h2>Pages â€” funded PhD openings</h2>
+    <ul class="follow-list">
+      <li><span class="name">PhDScanner<span class="why">Daily fully-funded PhD posts worldwide</span></span><a class="plain" href="https://www.linkedin.com/company/phdscanner" target="_blank" rel="noopener">Open â†—</a></li>
+      <li><span class="name">FindAPhD.com<span class="why">Largest UK/global PhD database</span></span><a class="plain" href="https://uk.linkedin.com/company/findaphd-com" target="_blank" rel="noopener">Open â†—</a></li>
+      <li><span class="name">Research in Germany<span class="why">Official portal â€” salaried PhD openings</span></span><a class="plain" href="https://www.linkedin.com/company/research-in-germany" target="_blank" rel="noopener">Open â†—</a></li>
+      <li><span class="name">EURAXESS Africa<span class="why">EU/MSCA doctoral networks</span></span><a class="plain" href="https://www.linkedin.com/company/euraxessafrica" target="_blank" rel="noopener">Open â†—</a></li>
+      <li><span class="name">FellowshipBard<span class="why">Funded PhD + postdoc updates</span></span><a class="plain" href="https://www.linkedin.com/company/fellowshipbard" target="_blank" rel="noopener">Open â†—</a></li>
+      <li><span class="name">ApplyKite<span class="why">Funded Master's/PhD/postdoc, UK & Europe</span></span><a class="plain" href="https://uk.linkedin.com/company/applykite" target="_blank" rel="noopener">Open â†—</a></li>
+      <li><span class="name">Owlindex<span class="why">Aggregates PhD/postdoc opportunities</span></span><a class="plain" href="https://www.linkedin.com/company/owlindex" target="_blank" rel="noopener">Open â†—</a></li>
+    </ul>
+  </div>
+  <div class="card">
+    <h2>People â€” sociology & social science PhD networks</h2>
+    <ul class="follow-list">
+      <li><span class="name">Aritra Ghosh<span class="why">PhD application guides for social sciences, UK/Europe</span></span><a class="plain" href="https://www.linkedin.com/in/aritra-ghosh-72a1111bb" target="_blank" rel="noopener">Open â†—</a></li>
+      <li><span class="name">Muhammad Perwaiz<span class="why">Near-daily funded PhD lists incl. DE, UK, JP</span></span><a class="plain" href="https://www.linkedin.com/in/muhammad-perwaiz-86bb5a183" target="_blank" rel="noopener">Open â†—</a></li>
+      <li><span class="name">Shaoni Dutta<span class="why">Curates funded-position resource threads</span></span><a class="plain" href="https://in.linkedin.com/in/shaoni-dutta" target="_blank" rel="noopener">Open â†—</a></li>
+      <li><span class="name">Dr. Martin Crook<span class="why">Senior Lecturer in Sociology (UK)</span></span><a class="plain" href="https://uk.linkedin.com/in/dr-martin-crook-3a20aa34" target="_blank" rel="noopener">Open â†—</a></li>
+      <li><span class="name">Newsletter: â€œPhD opportunities Abroadâ€<span class="why">Weekly digest â€” Europe, USA, UK, Australia</span></span><a class="plain" href="https://www.linkedin.com/newsletters/phd-opportunities-abroad-7017410049270591488" target="_blank" rel="noopener">Open â†—</a></li>
+    </ul>
+    <div class="note">âš ï¸ Avoid pages pushing paid â€œassignment helpâ€ or application-fee services â€” several imitators exist. Check each page's website link before following.</div>
+  </div>
+
+  <!-- ============ LIVE FEED ============ -->
+  <h3 class="sec">ðŸ“¡ Live feed (optional)</h3>
+  <div class="card">
+    <h2>Live postings <span class="pill" id="feedStatus">loadingâ€¦</span></h2>
+    <p class="feeds">Fetched in real time from EURAXESS &amp; jobs.ac.uk, straight from your browser â€” no server needed.
+      <button class="ctab" id="refreshBtn">â†» Refresh now</button>
+      <button class="ctab fchip active" data-fk="all">all</button>
+      <button class="ctab fchip" data-fk="sociology">sociology</button>
+      <button class="ctab fchip" data-fk="socialwork">social work</button>
+      <button class="ctab fchip" data-fk="buddhist">buddhist</button>
+    </p>
+    <div id="feedResults"></div>
+  </div>
+</div>
+
+<script>
+const enc = s => encodeURIComponent(s);
+
+// ---------------- data ----------------
+const DISCIPLINES = {
+  sociology: { kw: "sociology", label: "Sociology" },
+  socialwork: { kw: "social%20work", label: "Social Work" },
+  buddhist: { kw: "buddhism", label: "Buddhist Studies" },
+};
+const COUNTRIES = {
+  uk: { label: "ðŸ‡¬ðŸ‡§ UK", loc: "United Kingdom" },
+  us: { label: "ðŸ‡ºðŸ‡¸ US", loc: "United States" },
+  de: { label: "ðŸ‡©ðŸ‡ª Germany", loc: "Germany" },
+  jp: { label: "ðŸ‡¯ðŸ‡µ Japan", loc: "Japan" },
+};
+const SOURCES = [
+  { name: "FindAPhD", desc: d => `Funded PhDs â€” â€œ${d.label}â€`, url: d => `https://www.findaphd.com/phds/?Keywords=${d.kw}` },
+  { name: "LinkedIn Jobs", desc: d => `${d.label} PhD`, url: d => `https://www.linkedin.com/jobs/search/?keywords=${enc(d.label + " PhD")}` },
+  { name: "jobs.ac.uk", desc: () => "UK academic board (incl. studentships)", url: d => `https://www.jobs.ac.uk/search/?keywords=${d.kw}` },
+  { name: "EURAXESS", desc: () => "EU research jobs", url: d => `https://euraxess.ec.europa.eu/jobs/search?keywords=${d.kw}` },
+  { name: "ScholarshipDB", desc: () => "Funded positions & scholarships", url: d => `https://scholarshipdb.net/scholarships?q=${d.kw}` },
+];
+const UNIS = {
+  sociology: {
+    uk: [
+      ["LSE â€” Sociology", "https://www.lse.ac.uk/sociology", "PhD + ESRC-funded studentships"],
+      ["Univ. of Manchester â€” Sociology / Cathie Marsh", "https://www.socialsciences.manchester.ac.uk/sociology/", "SGSSS-funded PhDs"],
+      ["Univ. of Edinburgh â€” Sociology", "https://www.sociology.ed.ac.uk/", "PhD projects & studentships"],
+      ["Univ. of York â€” Sociology", "https://www.york.ac.uk/sociology/", "ESRC White Rose DTP"],
+      ["Goldsmiths â€” Sociology", "https://www.gold.ac.uk/sociology/", "PhD & bursaries"],
+      ["Cambridge â€” Sociology", "https://www.sociology.cam.ac.uk/", "PhD by thesis"],
+    ],
+    us: [
+      ["UC Berkeley â€” Sociology", "https://sociology.berkeley.edu/", "5-yr funding to all PhD admits"],
+      ["Univ. of Chicago â€” Sociology", "https://sociology.uchicago.edu/", "Full funding package"],
+      ["Univ. of Michigan â€” Sociology", "https://lsa.umich.edu/sociology", "Rackham funding"],
+      ["Columbia â€” Sociology", "https://sociology.columbia.edu/", "Full fellowship funding"],
+      ["NYU â€” Sociology", "https://as.nyu.edu/departments/sociology.html", "Fellowships + TA"],
+      ["Stanford â€” Sociology", "https://sociology.stanford.edu/", "Full funding, no fee"],
+    ],
+    de: [
+      ["MPI for the Study of Societies (KÃ¶ln)", "https://www.mpifg.de/", "Paid doctoral positions"],
+      ["WZB Berlin Social Science Center", "https://www.wzb.eu/en", "Projects hire PhD researchers"],
+      ["MPI Social Anthropology (Halle)", "https://www.eth.mpg.de/", "Doctoral funding"],
+      ["Univ. of Bielefeld â€” Sociology", "https://www.uni-bielefeld.de/fakultaeten/soziologie/", "GAS-BiGSci structured PhD"],
+      ["Hertie School (Berlin)", "https://www.hertie-school.org/en", "Funded PhD positions"],
+    ],
+    jp: [
+      ["Univ. of Tokyo â€” Admissions (Grad. Humanities & Sociology)", "https://www.u-tokyo.ac.jp/en/admissions.html", "MEXT univ-recommendation & TA"],
+      ["Waseda â€” GSAPS (politics & sociology)", "https://www.waseda.jp/gsaps/en/", "English-taught PhD"],
+      ["Kyoto Univ. â€” Admissions", "https://www.kyoto-u.ac.jp/en/admissions", "Grad. School of Letters"],
+      ["Hitotsubashi â€” Grad. School of Social Sciences", "https://www.hit-u.ac.jp/en/admissions/", "English programme"],
+    ],
+  },
+  socialwork: {
+    uk: [
+      ["Univ. of Bristol â€” School for Policy Studies", "https://www.bristol.ac.uk/sps/", "SW PhD studentships"],
+      ["Univ. of York â€” Social Policy & Social Work", "https://www.york.ac.uk/spsw/", "PhD & DSW routes"],
+      ["Univ. of Edinburgh â€” Social & Political Science", "https://www.ed.ac.uk/social-policy", "SW-related PhDs"],
+      ["Univ. of Birmingham â€” Social Policy", "https://www.birmingham.ac.uk/schools/social-policy", "PhD studentships"],
+    ],
+    us: [
+      ["Univ. of Michigan â€” Social Work", "https://ssw.umich.edu/", "Funded doctoral program"],
+      ["Columbia â€” Social Work", "https://socialwork.columbia.edu/", "PhD full funding"],
+      ["UC Berkeley â€” Social Welfare", "https://socialwelfare.berkeley.edu/", "Funded PhD"],
+      ["Univ. of Washington â€” Social Work", "https://socialwork.uw.edu/", "Doctoral funding"],
+      ["WashU â€” Brown School", "https://brownschool.washu.edu/", "Funded PhD, no GRE"],
+      ["NYU â€” Silver School of Social Work", "https://silver.nyu.edu/", "PhD funding"],
+    ],
+    de: [
+      ["Univ. of Kassel â€” Sozialwesen", "https://www.uni-kassel.de/", "Doctoral options in social work"],
+      ["Alice Salomon Hochschule Berlin", "https://www.ash-berlin.eu/", "Practice-research PhD"],
+      ["Goethe-Univ. Frankfurt â€” Erziehungswissenschaften", "https://www.uni-frankfurt.de/", "SW doctorates"],
+    ],
+    jp: [
+      ["Sophia Univ. â€” Admissions (Human Sciences)", "https://www.sophia.ac.jp/eng/admissions/", "English programmes"],
+      ["Ochanomizu Univ. â€” Admissions", "https://www.ocha.ac.jp/en/", "Gender & social policy"],
+      ["Japan College of Social Work", "https://www.jcsw.ac.jp/", "Specialist SW graduate school"],
+    ],
+  },
+  buddhist: {
+    uk: [
+      ["Oxford â€” Buddhist Studies Centre (OCHS)", "https://www.ochs.org.uk/", "Research & affiliated PhD routes"],
+      ["Oxford â€” Faculty of Theology & Religion", "https://www.theology.ox.ac.uk/", "DPhil in Oriental Studies"],
+      ["Cambridge â€” Faculty of Divinity", "https://www.divinity.cam.ac.uk/", "PhD & Trust scholarships"],
+      ["SOAS â€” Religions & Philosophies", "https://www.soas.ac.uk/religions-philosophies/", "Buddhism PhD, London"],
+    ],
+    us: [
+      ["UC Berkeley â€” Center for Buddhist Studies", "https://buddhiststudies.berkeley.edu/", "PhD via EALC/Group in Buddhist Studies"],
+      ["Columbia â€” EALAC", "https://ealac.columbia.edu/", "Buddhist studies PhD, full funding"],
+      ["Univ. of Chicago â€” Divinity School", "https://divinity.uchicago.edu/", "PhD incl. Buddhist studies"],
+      ["Mangalam Research Center", "https://mangalamresearch.org/", "Research fellowships (Berkeley, CA)"],
+      ["Harvard â€” Divinity School / EALC", "https://hds.harvard.edu/", "PhD study of religion"],
+    ],
+    de: [
+      ["LMU Munich â€” Indologie & Tibetologie", "https://www.indologie.uni-muenchen.de/", "Buddhist studies doctorates"],
+      ["Univ. of Hamburg â€” Asien-Afrika-Institut", "https://www.aai.uni-hamburg.de/", "Numata Chair in Buddhist Studies"],
+      ["Heidelberg â€” South Asia Institute", "https://www.sai.uni-heidelberg.de/", "Buddhist studies research"],
+      ["MPI Study of Religious & Ethnic Diversity", "https://www.mmg.mpg.de/", "Paid doctoral researchers (GÃ¶ttingen)"],
+    ],
+    jp: [
+      ["Kyoto Univ. â€” Grad. School of Letters", "https://www.kyoto-u.ac.jp/en/admissions", "Buddhist studies dept"],
+      ["Ryukoku Univ. (Kyoto)", "https://www.ryukoku.ac.jp/english/", "Buddhist culture & Jodo-Shin research"],
+      ["Taisho Univ. (Tokyo)", "https://www.tais.ac.jp/", "Buddhist studies, English track"],
+      ["Otani Univ. (Kyoto)", "https://www.otani.ac.jp/english/", "Shin Buddhist studies"],
+      ["Univ. of Tokyo â€” Graduate School of Humanities", "https://www.u-tokyo.ac.jp/en/admissions.html", "Indian & Buddhist studies section"],
+    ],
+  },
+};
+
+// Deadlines â€” verified 19 Sep 2026. v=true: from official page. c=false: recurring cycle.
+const SCHOLARSHIPS = [
+  { n:"Chevening Scholarship 2027/28", c:"UK", d:"2026-10-06", v:true, t:"6 Oct 2026, 11:00 UTC", u:"https://www.chevening.org/apply/", note:"Fully funded master's (not PhD, but funds pre-PhD year); any subject incl. all three fields." },
+  { n:"Gates Cambridge 2027/28", c:"UK", d:"2026-10-14", v:true, t:"US round: 14 Oct 2026 Â· International: 8 Dec 2026 or 6 Jan 2027 (course-dependent)", u:"https://www.gatescambridge.org/apply/timeline/", note:"Full-cost PhD at Cambridge, all subjects. Apply via course application." },
+  { n:"Rhodes Scholarship (Oxford)", c:"UK", d:"2026-10-01", v:false, t:"Typically early Oct 2026 for 2027 entry", u:"https://www.rhodeshouse.ox.ac.uk/scholarships/the-rhodes-scholarship/", note:"Full DPhil funding; national constituencies + Global." },
+  { n:"Commonwealth PhD Scholarships", c:"UK", d:"2026-10-15", v:false, t:"Window typically Sepâ€“Oct/Nov 2026", u:"https://cscuk.fcdo.gov.uk/scholarships/commonwealth-phd-scholarships/", note:"For citizens of low/middle-income Commonwealth countries." },
+  { n:"Clarendon Fund (Oxford)", c:"UK", d:"2027-01-08", v:false, t:"Auto-considered with Oxford application (course deadlines Decâ€“Jan)", u:"https://www.ox.ac.uk/clarendon", note:"~130 full scholarships/yr, all subjects, no separate application." },
+  { n:"DAAD Research Grants â€” Doctoral Programmes", c:"Germany", d:"2026-10-15", v:true, t:"15 Oct 2026 for Oct 2027 start (varies by country programme)", u:"https://www.daad.de/en/studying-in-germany/scholarships/", note:"â‚¬1,400+/month; one-year research or full doctoral grants." },
+  { n:"Heinrich BÃ¶ll Foundation Doctoral Funding", c:"Germany", d:"2027-03-01", v:false, t:"1 March & 1 September annually", u:"https://www.boell.de/en/scholarships", note:"Green-affiliated; strong fit for sociology & social movements." },
+  { n:"Fulbright Foreign Student Program", c:"US", d:null, v:false, t:"Country-specific, typically Febâ€“Oct 2026 for 2027", u:"https://foreign.fulbrightonline.org/", note:"Apply via your country's commission; PhD study in US." },
+  { n:"AAUW International Fellowships", c:"US", d:"2026-11-15", v:false, t:"15 Nov annually", u:"https://www.aauw.org/resources/programs/fellowships-grants/current-opportunities/international/", note:"Women, full-time grad/PhD study in the US, $20â€“50k." },
+  { n:"Ford Foundation Predoctoral Fellowship", c:"US", d:"2026-12-15", v:false, t:"Typically mid-Dec", u:"https://sites.nationalacademies.org/PGA/Ford/PGA_171531", note:"US citizens only; social sciences strongly represented." },
+  { n:"MEXT Scholarship â€” Embassy Track (Japan)", c:"Japan", d:null, v:true, t:"CLOSED for 2027 intake (was Aprâ€“May 2026) Â· next opens ~Aprâ€“May 2027 for 2028", u:"https://www.studyinjapan.go.jp/en/smap-stopj-applications-research.html", note:"Full PhD funding incl. flights; apply via Japanese embassy in your country." },
+  { n:"MEXT Scholarship â€” University Track (Japan)", c:"Japan", d:null, v:false, t:"Varies by university; often autumn windows", u:"https://www.studyinjapan.go.jp/en/", note:"University recommends you to MEXT; contact a professor first." },
+  { n:"ADBâ€“Japan Scholarship Program", c:"Japan/Asia-Pac.", d:null, v:false, t:"~6 months before intake; check designated universities", u:"https://www.adb.org/work-with-us/careers/japan-scholarship-program", note:"Covers designated programs incl. Japanese universities." },
+];
+
+// ---------------- build panels ----------------
+const panels = document.getElementById("panels");
+Object.entries(DISCIPLINES).forEach(([dKey, d], dIdx) => {
+  const panel = document.createElement("div");
+  panel.className = "panel" + (dIdx === 0 ? " active" : "");
+  panel.dataset.d = dKey;
+
+  // search card
+  const searchCard = document.createElement("div");
+  searchCard.className = "card";
+  searchCard.innerHTML = `<h2>ðŸ”Ž One-click searches â€” ${d.label}</h2><p class="hint">Pick a country, then open a search. Links are pre-filtered.</p><div class="ctabs"></div><div class="cbody"></div>`;
+  const ctabs = searchCard.querySelector(".ctabs");
+  const cbody = searchCard.querySelector(".cbody");
+  Object.entries(COUNTRIES).forEach(([cKey, c], cIdx) => {
+    const b = document.createElement("button");
+    b.className = "ctab" + (cIdx === 0 ? " active" : "");
+    b.textContent = c.label;
+    b.onclick = () => {
+      searchCard.querySelectorAll(".ctab").forEach(x => x.classList.remove("active"));
+      b.classList.add("active");
+      cbody.querySelectorAll(".cgroup").forEach(g => g.classList.toggle("active", g.dataset.c === cKey));
+    };
+    ctabs.appendChild(b);
+    const g = document.createElement("div");
+    g.className = "cgroup" + (cIdx === 0 ? " active" : "");
+    g.dataset.c = cKey;
+    const grid = document.createElement("div");
+    grid.className = "grid";
+    SOURCES.forEach(s => {
+      const a = document.createElement("a");
+      a.className = "btn";
+      a.target = "_blank"; a.rel = "noopener";
+      a.href = s.url(d) + (s.name === "LinkedIn Jobs" ? `&location=${enc(c.loc)}` : "");
+      a.innerHTML = `${s.name} <span class="pill">${c.label}</span><small>${s.desc(d)}</small>`;
+      grid.appendChild(a);
+    });
+    g.appendChild(grid);
+    cbody.appendChild(g);
+  });
+  panel.appendChild(searchCard);
+
+  // universities card
+  const uniCard = document.createElement("div");
+  uniCard.className = "card";
+  uniCard.innerHTML = `<h2>ðŸ›ï¸ Universities & faculties â€” ${d.label}</h2><p class="hint">Apply directly: funded studentships, RA/TA packages, salaried positions. Deadlines live on each page.</p><div class="uni-body"></div>`;
+  const ub = uniCard.querySelector(".uni-body");
+  Object.entries(UNIS[dKey]).forEach(([cKey, list]) => {
+    const h = document.createElement("div");
+    h.className = "country-h";
+    h.textContent = COUNTRIES[cKey].label;
+    ub.appendChild(h);
+    const ul = document.createElement("ul");
+    ul.className = "uni-list";
+    list.forEach(([n, u, note]) => {
+      const li = document.createElement("li");
+      li.innerHTML = `<span><span class="uni-name">${n}</span><span class="uni-note">${note}</span></span><a class="plain" target="_blank" rel="noopener" href="${u}">Open â†—</a>`;
+      ul.appendChild(li);
+    });
+    ub.appendChild(ul);
+  });
+  panel.appendChild(uniCard);
+  panels.appendChild(panel);
+});
+
+document.querySelectorAll("#tabs .tab").forEach(t => {
+  t.onclick = () => {
+    document.querySelectorAll("#tabs .tab").forEach(x => x.classList.remove("active"));
+    t.classList.add("active");
+    document.querySelectorAll(".panel").forEach(p => p.classList.toggle("active", p.dataset.d === t.dataset.d));
+  };
+});
+
+// ---------------- scholarships table ----------------
+const tbody = document.querySelector("#schTable tbody");
+const today = new Date(); today.setHours(0, 0, 0, 0);
+SCHOLARSHIPS.forEach(s => {
+  const tr = document.createElement("tr");
+  let badge, daysHtml = "";
+  if (s.d) {
+    const dl = new Date(s.d + "T23:59:00");
+    const diff = Math.ceil((dl - today) / 86400000);
+    if (diff >= 0) {
+      badge = s.v ? '<span class="badge b-verified">âœ“ verified</span>' : '<span class="badge b-typical">~ typical cycle</span>';
+      daysHtml = `<span class="days ${diff <= 30 ? "soon" : ""}">${diff === 0 ? "DUE TODAY" : "in " + diff + " days"}</span>`;
+    } else {
+      badge = '<span class="badge b-closed">passed â€” next cycle</span>';
+      daysHtml = `<span class="days">check page for next window</span>`;
+    }
+  } else {
+    badge = s.v ? '<span class="badge b-closed">closed / window-based</span>' : '<span class="badge b-typical">window varies</span>';
+  }
+  tr.innerHTML = `
+    <td><a class="plain" target="_blank" rel="noopener" href="${s.u}">${s.n}</a><span class="days">${s.note}</span></td>
+    <td>${s.c}</td>
+    <td>${s.t}${daysHtml}</td>
+    <td>${badge}</td>`;
+  tbody.appendChild(tr);
+});
+
+// ---------------- live feeds (realtime, in-browser) ----------------
+const LIVE_SOURCES = [
+  { name: "EURAXESS", kw: "sociology", url: "https://r.jina.ai/https://euraxess.ec.europa.eu/jobs/search?keywords=sociology", re: /\[([^\]]{10,200})\]\((https:\/\/euraxess\.ec\.europa\.eu\/jobs\/\d+[^)\s]*)\)/g },
+  { name: "EURAXESS", kw: "social work", url: "https://r.jina.ai/https://euraxess.ec.europa.eu/jobs/search?keywords=social%20work", re: /\[([^\]]{10,200})\]\((https:\/\/euraxess\.ec\.europa\.eu\/jobs\/\d+[^)\s]*)\)/g },
+  { name: "EURAXESS", kw: "buddhism", url: "https://r.jina.ai/https://euraxess.ec.europa.eu/jobs/search?keywords=buddhism", re: /\[([^\]]{10,200})\]\((https:\/\/euraxess\.ec\.europa\.eu\/jobs\/\d+[^)\s]*)\)/g },
+  { name: "jobs.ac.uk", kw: "sociology", url: "https://r.jina.ai/https://www.jobs.ac.uk/search/?keywords=sociology", re: /\[([^\]]{10,200})\]\((https:\/\/www\.jobs\.ac\.uk\/job\/[A-Z0-9]+\/[^)\s]+)\)/g },
+  { name: "jobs.ac.uk", kw: "social work", url: "https://r.jina.ai/https://www.jobs.ac.uk/search/?keywords=social%20work", re: /\[([^\]]{10,200})\]\((https:\/\/www\.jobs\.ac\.uk\/job\/[A-Z0-9]+\/[^)\s]+)\)/g },
+  { name: "jobs.ac.uk", kw: "buddhism", url: "https://r.jina.ai/https://www.jobs.ac.uk/search/?keywords=buddhism", re: /\[([^\]]{10,200})\]\((https:\/\/www\.jobs\.ac\.uk\/job\/[A-Z0-9]+\/[^)\s]+)\)/g },
+];
+let ALL_JOBS = [], feedFilter = "all";
+
+function cleanJob(s = "") { return s.replace(/&amp;/g, "&").replace(/\s+/g, " ").trim(); }
+
+function renderFeed() {
+  const box = document.getElementById("feedResults");
+  box.innerHTML = "";
+  const shown = ALL_JOBS.filter(j => feedFilter === "all" || j.kw === feedFilter || (feedFilter === "buddhist" && j.kw === "buddhism"));
+  shown.forEach(j => {
+    const div = document.createElement("div");
+    div.className = "job";
+    div.innerHTML = `<a href="${j.link}" target="_blank" rel="noopener">${j.title}</a><div class="meta">${j.source} Â· ${j.kw}</div>`;
+    box.appendChild(div);
+  });
+  if (!shown.length) box.innerHTML = `<p class="feeds">No postings${feedFilter !== "all" ? " for â€œ" + feedFilter + "â€" : ""} right now â€” try Refresh.</p>`;
+}
+
+function setFeedStatus(txt) { document.getElementById("feedStatus").textContent = txt; }
+
+async function loadSnapshot() {
+  try {
+    let data = window.FEEDS_DATA; // inlined in share.html
+    if (!data) {
+      const res = await fetch("./feeds.json");
+      if (!res.ok) throw new Error();
+      data = await res.json();
+    }
+    if (ALL_JOBS.length) return false; // live data already present â€” keep it
+    ALL_JOBS = data.jobs || [];
+    setFeedStatus(`${ALL_JOBS.length} results Â· snapshot ${new Date(data.fetched).toLocaleString()} (offline mode)`);
+    renderFeed();
+    return true;
+  } catch { return false; }
+}
+
+async function fetchLive() {
+  setFeedStatus("fetching liveâ€¦");
+  const settled = await Promise.allSettled(LIVE_SOURCES.map(async s => {
+    const ctrl = new AbortController();
+    const timer = setTimeout(() => ctrl.abort(), 30000);
+    try {
+      const r = await fetch(s.url, { signal: ctrl.signal });
+      if (!r.ok) throw new Error("HTTP " + r.status);
+      const text = await r.text();
+      if (/Just a moment/i.test(text.slice(0, 500))) throw new Error("blocked");
+      const jobs = []; let m;
+      s.re.lastIndex = 0;
+      while ((m = s.re.exec(text)) !== null) jobs.push({ title: cleanJob(m[1]), link: m[2], source: s.name, kw: s.kw });
+      return jobs;
+    } finally { clearTimeout(timer); }
+  }));
+  const merged = [];
+  const seen = new Set();
+  let okCount = 0;
+  settled.forEach(r => { if (r.status === "fulfilled") { okCount++; merged.push(...r.value); } });
+  const jobs = merged.filter(j => (seen.has(j.link) ? false : (seen.add(j.link), true)));
+  if (!jobs.length) {
+    const hadSnapshot = await loadSnapshot();
+    if (!hadSnapshot) setFeedStatus("live fetch failed â€” no snapshot available");
+    return;
+  }
+  ALL_JOBS = jobs;
+  setFeedStatus(`${jobs.length} live results Â· ${okCount}/${LIVE_SOURCES.length} sources Â· ${new Date().toLocaleTimeString()}`);
+  renderFeed();
+}
+
+document.getElementById("refreshBtn").onclick = fetchLive;
+document.querySelectorAll(".fchip").forEach(b => {
+  b.onclick = () => {
+    document.querySelectorAll(".fchip").forEach(x => x.classList.remove("active"));
+    b.classList.add("active");
+    feedFilter = b.dataset.fk;
+    renderFeed();
+  };
+});
+fetchLive(); // realtime on page load
+</script>
+</body>
+</html>
