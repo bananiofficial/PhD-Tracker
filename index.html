@@ -3,459 +3,630 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PhD Opportunities Abroad — Sociology · Social Work · Buddhist Studies</title>
+<title>Faculty Mail Composer — research, verify, write</title>
 <style>
-  :root {
-    --bg:#0e1117; --card:#161b26; --card2:#1c2333; --line:#2a3245;
-    --text:#e6e9f0; --dim:#9aa4b8; --acc:#5b9dff; --acc2:#8f7bff;
-    --ok:#3fbf7f; --warn:#e0a94e; --bad:#e06c6c;
-  }
+  :root{--bg:#f6f7fa;--card:#fff;--line:#dfe3ec;--ink:#1c2333;--dim:#68718a;--acc:#2b5fd9;--acc2:#6a3fd9;--ok:#1e9e63;--warn:#c07f1f;--bad:#cf4a4a}
   *{box-sizing:border-box;margin:0;padding:0}
-  body{background:var(--bg);color:var(--text);font-family:-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.55;padding:32px 20px 80px}
-  .wrap{max-width:1100px;margin:0 auto}
-  h1{font-size:1.7rem;margin-bottom:4px}
-  h1 span{background:linear-gradient(90deg,var(--acc),var(--acc2));-webkit-background-clip:text;background-clip:text;color:transparent}
-  .sub{color:var(--dim);margin-bottom:26px;font-size:.95rem}
-  .tabs{display:flex;gap:8px;margin-bottom:22px;flex-wrap:wrap}
-  .tab{padding:10px 18px;border-radius:10px;border:1px solid var(--line);background:var(--card);color:var(--dim);cursor:pointer;font-size:.95rem;font-weight:600}
-  .tab.active{background:var(--card2);color:var(--text);border-color:var(--acc)}
-  .panel{display:none}.panel.active{display:block}
-  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px;margin-bottom:20px}
-  .card h2{font-size:1.1rem;margin-bottom:6px}
-  .hint{color:var(--dim);font-size:.86rem;margin-bottom:14px}
-  .ctabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px}
-  .ctab{padding:6px 12px;border-radius:8px;border:1px solid var(--line);background:transparent;color:var(--dim);cursor:pointer;font-size:.82rem}
-  .ctab.active{color:var(--text);border-color:var(--acc2);background:rgba(143,123,255,.08)}
-  .cgroup{display:none}.cgroup.active{display:block}
-  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(215px,1fr));gap:10px}
-  a.btn{display:block;padding:12px 14px;border-radius:10px;text-decoration:none;background:var(--card2);border:1px solid var(--line);color:var(--text);font-size:.88rem;transition:border-color .15s,transform .15s}
-  a.btn:hover{border-color:var(--acc);transform:translateY(-1px)}
-  a.btn small{display:block;color:var(--dim);font-size:.74rem;margin-top:3px}
-  .uni-list{list-style:none}
-  .uni-list li{padding:8px 0;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap}
-  .uni-list li:last-child{border-bottom:none}
-  .uni-name{font-weight:600;font-size:.9rem}
-  .uni-note{color:var(--dim);font-size:.76rem;display:block}
-  a.plain{color:var(--acc);text-decoration:none;font-size:.82rem;white-space:nowrap}
-  a.plain:hover{text-decoration:underline}
-  h3.sec{margin:26px 0 12px;font-size:.85rem;text-transform:uppercase;letter-spacing:.08em;color:var(--dim)}
-  .note{background:rgba(224,169,78,.08);border:1px solid rgba(224,169,78,.35);border-radius:10px;padding:12px 14px;font-size:.83rem;color:#e8cf9e;margin-top:14px}
-  table{width:100%;border-collapse:collapse;font-size:.87rem}
-  th{color:var(--dim);text-align:left;font-size:.74rem;text-transform:uppercase;letter-spacing:.06em;padding:8px 10px;border-bottom:1px solid var(--line)}
-  td{padding:10px;border-bottom:1px solid var(--line);vertical-align:top}
-  tr:last-child td{border-bottom:none}
-  .badge{display:inline-block;padding:2px 9px;border-radius:99px;font-size:.68rem;font-weight:700;margin-right:6px;vertical-align:middle}
-  .b-verified{background:rgba(63,191,127,.15);color:var(--ok);border:1px solid rgba(63,191,127,.4)}
-  .b-typical{background:rgba(224,169,78,.12);color:var(--warn);border:1px solid rgba(224,169,78,.4)}
-  .b-closed{background:rgba(224,108,108,.12);color:var(--bad);border:1px solid rgba(224,108,108,.4)}
-  .days{color:var(--dim);font-size:.76rem;display:block;margin-top:2px}
-  .soon{color:var(--warn);font-weight:700}
-  .pill{display:inline-block;padding:2px 8px;border-radius:99px;font-size:.68rem;background:var(--card2);border:1px solid var(--line);color:var(--dim);margin-left:6px;vertical-align:middle}
-  code{background:var(--card2);padding:2px 7px;border-radius:6px;font-size:.82rem;color:var(--ok)}
-  #feedResults .job{padding:9px 0;border-bottom:1px solid var(--line)}
-  #feedResults .job:last-child{border-bottom:none}
-  #feedResults a{color:var(--acc);text-decoration:none;font-size:.88rem}
-  #feedResults a:hover{text-decoration:underline}
-  #feedResults .meta{color:var(--dim);font-size:.74rem}
-  .follow-list{list-style:none}
-  .follow-list li{padding:9px 0;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap}
-  .follow-list li:last-child{border-bottom:none}
-  .follow-list .name{font-weight:600;font-size:.9rem}
-  .follow-list .why{color:var(--dim);font-size:.78rem;display:block}
-  .country-h{margin:16px 0 8px;font-size:.8rem;text-transform:uppercase;letter-spacing:.07em;color:var(--acc2)}
+  body{background:var(--bg);color:var(--ink);font-family:-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.5;padding:28px 18px 70px}
+  .wrap{max-width:1140px;margin:0 auto}
+  h1{font-size:1.45rem}h1 span{color:var(--acc)}
+  .sub{color:var(--dim);margin:4px 0 22px;font-size:.92rem;max-width:900px}
+  .cols{display:grid;grid-template-columns:1fr 1fr;gap:18px;align-items:start}
+  @media(max-width:940px){.cols{grid-template-columns:1fr}}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px;margin-bottom:16px}
+  .card h2{font-size:.98rem;margin-bottom:10px}
+  .card h2 small{color:var(--dim);font-weight:400;font-size:.78rem;display:block;margin-top:2px}
+  label{font-size:.8rem;font-weight:600;color:var(--dim);display:block;margin:10px 0 4px}
+  input,textarea,select{width:100%;border:1px solid var(--line);border-radius:9px;padding:9px 11px;font:inherit;font-size:.9rem;background:#fbfcfe;color:var(--ink)}
+  textarea{resize:vertical;min-height:74px}
+  textarea.big{min-height:150px}
+  input:focus,textarea:focus,select:focus{outline:none;border-color:var(--acc);box-shadow:0 0 0 3px rgba(43,95,217,.12)}
+  .row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  button{border:none;border-radius:10px;padding:11px 18px;font:inherit;font-size:.92rem;font-weight:700;cursor:pointer;transition:filter .15s}
+  button:hover{filter:brightness(1.08)}
+  button:disabled{opacity:.5;cursor:wait}
+  .primary{background:linear-gradient(90deg,var(--acc),var(--acc2));color:#fff;width:100%;padding:14px;font-size:1rem}
+  .research{background:#123c8a;color:#fff;width:100%;padding:12px;font-size:.95rem}
+  .ghost{background:#eef1f8;color:var(--ink);padding:8px 14px;font-weight:600;font-size:.82rem}
+  .note{background:rgba(192,127,31,.09);border:1px solid rgba(192,127,31,.35);color:#8a6120;border-radius:10px;padding:10px 13px;font-size:.8rem;margin-top:12px}
+  .hint{color:var(--dim);font-size:.78rem;margin-top:4px}
+  #preview{white-space:pre-wrap;font-family:Georgia,"Times New Roman",serif;font-size:.95rem;line-height:1.65;background:#fffefb;border:1px solid var(--line);border-radius:10px;padding:22px;max-height:520px;overflow:auto}
+  #preview a{color:#0563C1}
+  .status{font-size:.8rem;color:var(--ok);font-weight:700;margin-left:10px}
+  details{margin-bottom:10px}summary{cursor:pointer;font-weight:700;font-size:.9rem}
+  .filled{border-color:var(--ok) !important;background:#f4fbf7 !important}
+  /* research panel */
+  #researchPanel{display:none}
+  .src{display:flex;gap:10px;align-items:flex-start;padding:9px 11px;border:1px solid var(--line);border-radius:10px;margin-bottom:8px;background:#fbfcfe}
+  .src input{width:auto;margin-top:4px;accent-color:var(--acc)}
+  .src .t{font-size:.88rem;font-weight:600}
+  .src .u{font-size:.74rem;color:var(--acc);word-break:break-all;display:block;margin:2px 0}
+  .src .s{font-size:.8rem;color:var(--dim)}
+  .facts{display:grid;gap:6px;margin-top:10px}
+  .fact{display:flex;gap:9px;align-items:flex-start;font-size:.86rem;background:#f4fbf7;border:1px solid #cfe9db;border-radius:9px;padding:8px 11px}
+  .fact input{width:auto;margin-top:3px;accent-color:var(--ok)}
+  .fact .v{flex:1}
+  .fact .src-link{font-size:.72rem;color:var(--acc);display:block;word-break:break-all}
+  .badge{display:inline-block;padding:1px 8px;border-radius:99px;font-size:.68rem;font-weight:700;margin-left:6px;vertical-align:middle}
+  .b-ok{background:rgba(30,158,99,.12);color:var(--ok);border:1px solid rgba(30,158,99,.4)}
+  .b-warn{background:rgba(192,127,31,.12);color:var(--warn);border:1px solid rgba(192,127,31,.4)}
+  .spin{display:inline-block;width:13px;height:13px;border:2px solid rgba(255,255,255,.35);border-top-color:#fff;border-radius:50%;animation:sp 1s linear infinite;vertical-align:-2px;margin-right:6px}
+  @keyframes sp{to{transform:rotate(360deg)}}
+  .log{font-size:.75rem;color:var(--dim);margin-top:8px;max-height:90px;overflow:auto}
 </style>
 </head>
 <body>
 <div class="wrap">
-  <h1>PhD Opportunities <span>Abroad</span></h1>
-  <p class="sub">Sociology · Social Work · Buddhist Studies — UK · US · Germany · Japan. Scholarships, sponsorships, universities, faculties, live feeds & LinkedIn follows. Deadlines verified 19 Sep 2026.</p>
+  <h1>Faculty Mail <span>Composer</span></h1>
+  <p class="sub">Paste what you know → <b>🔍 Research faculty</b> searches the web (search engines + the professor's university profile + Google Scholar link), extracts candidate facts for you to <b>verify with one click</b> → <b>📝 Give mail</b> writes the letter in your established voice and downloads it as a Word file with real hyperlinks. Only facts you tick are used — nothing is invented.</p>
 
-  <div class="tabs" id="tabs">
-    <button class="tab active" data-d="sociology">Sociology</button>
-    <button class="tab" data-d="socialwork">Social Work</button>
-    <button class="tab" data-d="buddhist">Buddhist Studies</button>
-  </div>
+  <div class="cols">
+    <div>
+      <div class="card">
+        <h2>1 · Paste faculty information <small>From their university page, an email signature, a department list — anything you have.</small></h2>
+        <textarea id="rawPaste" class="big" placeholder="e.g.&#10;Prof. Dr. Michael Zimmermann&#10;Numata Center for Buddhist Studies, University of Hamburg&#10;Research: Indian Mahayana Buddhism, Buddhist ethics&#10;https://www.buddhismuskunde.uni-hamburg.de/en/personen/zimmermann.html"></textarea>
+        <button class="ghost" id="autofillBtn" style="margin-top:10px">⚡ Auto-fill fields from paste</button>
+        <span class="status" id="autofillStatus"></span>
+      </div>
 
-  <!-- Panels are built by JS -->
-  <div id="panels"></div>
+      <div class="card">
+        <h2>2 · Verified fields <small>The letter uses ONLY these + your fixed bio. Keep each field exactly as their page states it.</small></h2>
+        <div class="row">
+          <div><label>Full name (as on their page)</label><input id="fName" placeholder="Michael Zimmermann"></div>
+          <div><label>Title / salutation</label>
+            <select id="fTitle">
+              <option value="Professor">Professor</option>
+              <option value="Dr">Dr</option>
+              <option value="Professor Dr">Professor Dr</option>
+            </select>
+          </div>
+        </div>
+        <div class="row">
+          <div><label>University / institution</label><input id="fUni" placeholder="University of Hamburg"></div>
+          <div><label>Department / Centre / Chair</label><input id="fDept" placeholder="Numata Center for Buddhist Studies"></div>
+        </div>
+        <div class="row">
+          <div><label>Country (funding paragraph)</label>
+            <select id="fCountry">
+              <option value="other">Other / not stated</option>
+              <option value="in">India</option>
+              <option value="de">Germany</option><option value="uk">United Kingdom</option>
+              <option value="us">United States</option><option value="jp">Japan</option>
+            </select>
+          </div>
+          <div><label>Field for the opening line</label><input id="fField" placeholder="Buddhist Studies / Religious Studies / Sociology"></div>
+        </div>
+        <div class="row">
+          <div><label>Their e-mail (for your records — not used in the letter)</label><input id="fEmail" placeholder="name@university.edu"></div>
+          <div><label>&nbsp;</label><div class="hint" style="margin-top:8px">Tick-boxes below appear after 🔍 Research — only ticked facts enter the letter.</div></div>
+        </div>
+        <label>Their research you genuinely admire <span style="font-weight:400">(“your research on …” — exactly what their page says)</span></label>
+        <textarea id="fInterests" placeholder="the transfer and transformation of Buddhism across Central Asia, the history of religions, Buddhism and violence, human rights"></textarea>
+        <label>Optional specific remarks <small style="display:inline;color:var(--dim);font-weight:400"> — personal note, a paper, why their method matters to you; URLs pasted here become hyperlinks</small></label>
+        <textarea id="fRemarks" class="big" placeholder="e.g. Your recent chapter on mindfulness secularisation speaks directly to my questions about ethical frameworks."></textarea>
+      </div>
+    </div>
 
-  <!-- ============ SCHOLARSHIPS & SPONSORSHIPS ============ -->
-  <h3 class="sec">🎓 Scholarships & sponsorships — global (all three disciplines)</h3>
-  <div class="card">
-    <h2>Scholarships — verified & recurring deadlines</h2>
-    <p class="hint">✓ = deadline verified from the official page. ~ = recurring cycle, confirm exact date on the page before planning.</p>
-    <table id="schTable">
-      <thead><tr><th>Programme</th><th>Country</th><th>Deadline</th><th></th></tr></thead>
-      <tbody></tbody>
-    </table>
-    <div class="note">💡 <b>“Sponsorship”</b> in academia means being hired as a <b>paid employee</b>: UK studentships tied to projects, US RA/TA packages bundled with admission, German TV-L E13 contracts (65–100%), Japanese TA/research-assistant grants. The university links above lead directly to those funded openings — apply there like a job application.</div>
-  </div>
+    <div>
+      <div class="card">
+        <h2>3 · Research &amp; verify <small>Searches DuckDuckGo/Bing via text proxy, opens the professor's real pages, extracts candidate facts. Tick what you have verified.</small></h2>
+        <button class="research" id="researchBtn">🔍 Research faculty on the internet</button>
+        <div class="log" id="researchLog"></div>
+        <div id="researchPanel">
+          <h2 style="margin-top:14px">Sources found <span id="srcCount"></span></h2>
+          <div id="srcList"></div>
+          <h2 style="margin-top:14px">Candidate facts — tick only what you verified <span id="factCount"></span></h2>
+          <div class="facts" id="factList"></div>
+          <button class="ghost" id="applyFactsBtn" style="margin-top:12px">⤵ Apply ticked facts to fields</button>
+          <span class="status" id="applyStatus"></span>
+        </div>
+        <div class="note" style="margin-top:12px">🔎 A Google Scholar author-profile link is always included when found — open it to confirm title/gender/affiliation with your own eyes before sending. Salutation is gender-safe (“Dear Professor Surname,”) regardless.</div>
+      </div>
 
-  <!-- ============ SPECIALIST BOARDS ============ -->
-  <h3 class="sec">📿 Specialist boards & networks</h3>
-  <div class="card">
-    <ul class="follow-list">
-      <li><span class="name">H-Net: H-Buddhism<span class="why">Scholar-run network — jobs, fellowships & grants for Buddhist studies</span></span><a class="plain" href="https://networks.h-net.org/h-buddhism" target="_blank" rel="noopener">Open ↗</a></li>
-      <li><span class="name">H-Net Job Guide<span class="why">Academic jobs & fellowships incl. religion fields (US-heavy)</span></span><a class="plain" href="https://networks.h-net.org/jobguide" target="_blank" rel="noopener">Open ↗</a></li>
-      <li><span class="name">Mangalam Research Center<span class="why">Buddhist-studies research positions & programs (US)</span></span><a class="plain" href="https://mangalamresearch.org/" target="_blank" rel="noopener">Open ↗</a></li>
-      <li><span class="name">European Sociological Association<span class="why">Jobs & fellowships across Europe — sociology & social work</span></span><a class="plain" href="https://www.europeansociology.org/opportunities/jobs-fellowships" target="_blank" rel="noopener">Open ↗</a></li>
-      <li><span class="name">GADE — Doctoral Ed. in Social Work<span class="why">US network of social-work doctoral programmes & funding</span></span><a class="plain" href="https://www.gadephd.org/" target="_blank" rel="noopener">Open ↗</a></li>
-      <li><span class="name">EURAXESS<span class="why">EU-wide research job search (all disciplines)</span></span><a class="plain" href="https://euraxess.ec.europa.eu/jobs/search?keywords=sociology" target="_blank" rel="noopener">Open ↗</a></li>
-    </ul>
-  </div>
+      <div class="card">
+        <details>
+          <summary>📄 Your fixed profile &amp; links (saved in this browser — edit once)</summary>
+          <div style="margin-top:10px">
+            <label>CV link (appears twice, like your letters)</label><input id="pCV" value="https://drive.google.com/file/d/1F5y6yx_VS8AAep45hbkt_TR8ektBeNwK/view?usp=drive_link">
+            <label>TISS link (bio paragraph)</label><input id="pTISS" value="https://tiss.ac.in/">
+            <label>Dissertation link</label><input id="pThesis" value="https://drive.google.com/file/d/1uvOBXDlHMLMus0XjvLMK3Tx4LoSnjfrG/view">
+            <label>Research proposal link</label><input id="pProposal" value="https://drive.google.com/file/d/1FGP0iIvtP6onPNU1qlxgxRhgtO6pUrFi/view">
+            <label>Status line in opening</label>
+            <select id="pMode">
+              <option value="supervision">Approaching fresh — “under your supervision”</option>
+              <option value="applied">Application already submitted via portal</option>
+            </select>
+          </div>
+        </details>
+        <button class="ghost" id="saveProfileBtn" style="margin-top:10px">💾 Save profile</button>
+        <span class="status" id="saveStatus"></span>
+      </div>
 
-  <!-- ============ LINKEDIN ============ -->
-  <h3 class="sec">📌 Follow on LinkedIn — click, then hit Follow</h3>
-  <div class="card">
-    <h2>Pages — funded PhD openings</h2>
-    <ul class="follow-list">
-      <li><span class="name">PhDScanner<span class="why">Daily fully-funded PhD posts worldwide</span></span><a class="plain" href="https://www.linkedin.com/company/phdscanner" target="_blank" rel="noopener">Open ↗</a></li>
-      <li><span class="name">FindAPhD.com<span class="why">Largest UK/global PhD database</span></span><a class="plain" href="https://uk.linkedin.com/company/findaphd-com" target="_blank" rel="noopener">Open ↗</a></li>
-      <li><span class="name">Research in Germany<span class="why">Official portal — salaried PhD openings</span></span><a class="plain" href="https://www.linkedin.com/company/research-in-germany" target="_blank" rel="noopener">Open ↗</a></li>
-      <li><span class="name">EURAXESS Africa<span class="why">EU/MSCA doctoral networks</span></span><a class="plain" href="https://www.linkedin.com/company/euraxessafrica" target="_blank" rel="noopener">Open ↗</a></li>
-      <li><span class="name">FellowshipBard<span class="why">Funded PhD + postdoc updates</span></span><a class="plain" href="https://www.linkedin.com/company/fellowshipbard" target="_blank" rel="noopener">Open ↗</a></li>
-      <li><span class="name">ApplyKite<span class="why">Funded Master's/PhD/postdoc, UK & Europe</span></span><a class="plain" href="https://uk.linkedin.com/company/applykite" target="_blank" rel="noopener">Open ↗</a></li>
-      <li><span class="name">Owlindex<span class="why">Aggregates PhD/postdoc opportunities</span></span><a class="plain" href="https://www.linkedin.com/company/owlindex" target="_blank" rel="noopener">Open ↗</a></li>
-    </ul>
-  </div>
-  <div class="card">
-    <h2>People — sociology & social science PhD networks</h2>
-    <ul class="follow-list">
-      <li><span class="name">Aritra Ghosh<span class="why">PhD application guides for social sciences, UK/Europe</span></span><a class="plain" href="https://www.linkedin.com/in/aritra-ghosh-72a1111bb" target="_blank" rel="noopener">Open ↗</a></li>
-      <li><span class="name">Muhammad Perwaiz<span class="why">Near-daily funded PhD lists incl. DE, UK, JP</span></span><a class="plain" href="https://www.linkedin.com/in/muhammad-perwaiz-86bb5a183" target="_blank" rel="noopener">Open ↗</a></li>
-      <li><span class="name">Shaoni Dutta<span class="why">Curates funded-position resource threads</span></span><a class="plain" href="https://in.linkedin.com/in/shaoni-dutta" target="_blank" rel="noopener">Open ↗</a></li>
-      <li><span class="name">Dr. Martin Crook<span class="why">Senior Lecturer in Sociology (UK)</span></span><a class="plain" href="https://uk.linkedin.com/in/dr-martin-crook-3a20aa34" target="_blank" rel="noopener">Open ↗</a></li>
-      <li><span class="name">Newsletter: “PhD opportunities Abroad”<span class="why">Weekly digest — Europe, USA, UK, Australia</span></span><a class="plain" href="https://www.linkedin.com/newsletters/phd-opportunities-abroad-7017410049270591488" target="_blank" rel="noopener">Open ↗</a></li>
-    </ul>
-    <div class="note">⚠️ Avoid pages pushing paid “assignment help” or application-fee services — several imitators exist. Check each page's website link before following.</div>
-  </div>
+      <div class="card">
+        <h2>4 · Give mail <small>Word file with real hyperlinks, ready to attach.</small></h2>
+        <button class="primary" id="goBtn">📝 Give mail → Word file (.docx)</button>
+        <button class="ghost" id="copyBtn" style="margin-top:10px">Copy letter as plain text</button>
+        <span class="status" id="goStatus"></span>
+        <div class="note">✅ Gender-safe salutation · only verified facts · tone matched to your Meinert/Zimmermann letters · all links preserved as clickable Word hyperlinks.</div>
+      </div>
 
-  <!-- ============ LIVE FEED ============ -->
-  <h3 class="sec">📡 Live feed (optional)</h3>
-  <div class="card">
-    <h2>Live postings <span class="pill" id="feedStatus">loading…</span></h2>
-    <p class="feeds">Fetched in real time from EURAXESS &amp; jobs.ac.uk, straight from your browser — no server needed.
-      <button class="ctab" id="refreshBtn">↻ Refresh now</button>
-      <button class="ctab fchip active" data-fk="all">all</button>
-      <button class="ctab fchip" data-fk="sociology">sociology</button>
-      <button class="ctab fchip" data-fk="socialwork">social work</button>
-      <button class="ctab fchip" data-fk="buddhist">buddhist</button>
-    </p>
-    <div id="feedResults"></div>
+      <div class="card">
+        <h2>Live preview</h2>
+        <div id="preview"></div>
+      </div>
+    </div>
   </div>
 </div>
 
 <script>
-const enc = s => encodeURIComponent(s);
-
-// ---------------- data ----------------
-const DISCIPLINES = {
-  sociology: { kw: "sociology", label: "Sociology" },
-  socialwork: { kw: "social%20work", label: "Social Work" },
-  buddhist: { kw: "buddhism", label: "Buddhist Studies" },
+"use strict";
+// ================= constants =================
+const PROXY = u => "https://r.jina.ai/" + u;
+const FUNDING = {
+  in: "exploring suitable funding opportunities for doctoral study in India, including UGC-NET JRF, institutional fellowships, and international co-funding routes",
+  de: "exploring suitable funding opportunities for doctoral study in Germany, including the DAAD research grants and institutional funding routes",
+  uk: "exploring suitable funding opportunities for doctoral study in the United Kingdom, including ESRC-funded studentships and university scholarships",
+  us: "exploring fully funded doctoral study in the United States, including fellowship and research/teaching assistantship packages",
+  jp: "exploring suitable funding opportunities for doctoral study in Japan, including the MEXT scholarship and university funding routes",
+  other: "exploring suitable funding opportunities for doctoral study at your institution",
 };
-const COUNTRIES = {
-  uk: { label: "🇬🇧 UK", loc: "United Kingdom" },
-  us: { label: "🇺🇸 US", loc: "United States" },
-  de: { label: "🇩🇪 Germany", loc: "Germany" },
-  jp: { label: "🇯🇵 Japan", loc: "Japan" },
-};
-const SOURCES = [
-  { name: "FindAPhD", desc: d => `Funded PhDs — “${d.label}”`, url: d => `https://www.findaphd.com/phds/?Keywords=${d.kw}` },
-  { name: "LinkedIn Jobs", desc: d => `${d.label} PhD`, url: d => `https://www.linkedin.com/jobs/search/?keywords=${enc(d.label + " PhD")}` },
-  { name: "jobs.ac.uk", desc: () => "UK academic board (incl. studentships)", url: d => `https://www.jobs.ac.uk/search/?keywords=${d.kw}` },
-  { name: "EURAXESS", desc: () => "EU research jobs", url: d => `https://euraxess.ec.europa.eu/jobs/search?keywords=${d.kw}` },
-  { name: "ScholarshipDB", desc: () => "Funded positions & scholarships", url: d => `https://scholarshipdb.net/scholarships?q=${d.kw}` },
-];
-const UNIS = {
-  sociology: {
-    uk: [
-      ["LSE — Sociology", "https://www.lse.ac.uk/sociology", "PhD + ESRC-funded studentships"],
-      ["Univ. of Manchester — Sociology / Cathie Marsh", "https://www.socialsciences.manchester.ac.uk/sociology/", "SGSSS-funded PhDs"],
-      ["Univ. of Edinburgh — Sociology", "https://www.sociology.ed.ac.uk/", "PhD projects & studentships"],
-      ["Univ. of York — Sociology", "https://www.york.ac.uk/sociology/", "ESRC White Rose DTP"],
-      ["Goldsmiths — Sociology", "https://www.gold.ac.uk/sociology/", "PhD & bursaries"],
-      ["Cambridge — Sociology", "https://www.sociology.cam.ac.uk/", "PhD by thesis"],
-    ],
-    us: [
-      ["UC Berkeley — Sociology", "https://sociology.berkeley.edu/", "5-yr funding to all PhD admits"],
-      ["Univ. of Chicago — Sociology", "https://sociology.uchicago.edu/", "Full funding package"],
-      ["Univ. of Michigan — Sociology", "https://lsa.umich.edu/sociology", "Rackham funding"],
-      ["Columbia — Sociology", "https://sociology.columbia.edu/", "Full fellowship funding"],
-      ["NYU — Sociology", "https://as.nyu.edu/departments/sociology.html", "Fellowships + TA"],
-      ["Stanford — Sociology", "https://sociology.stanford.edu/", "Full funding, no fee"],
-    ],
-    de: [
-      ["MPI for the Study of Societies (Köln)", "https://www.mpifg.de/", "Paid doctoral positions"],
-      ["WZB Berlin Social Science Center", "https://www.wzb.eu/en", "Projects hire PhD researchers"],
-      ["MPI Social Anthropology (Halle)", "https://www.eth.mpg.de/", "Doctoral funding"],
-      ["Univ. of Bielefeld — Sociology", "https://www.uni-bielefeld.de/fakultaeten/soziologie/", "GAS-BiGSci structured PhD"],
-      ["Hertie School (Berlin)", "https://www.hertie-school.org/en", "Funded PhD positions"],
-    ],
-    jp: [
-      ["Univ. of Tokyo — Admissions (Grad. Humanities & Sociology)", "https://www.u-tokyo.ac.jp/en/admissions.html", "MEXT univ-recommendation & TA"],
-      ["Waseda — GSAPS (politics & sociology)", "https://www.waseda.jp/gsaps/en/", "English-taught PhD"],
-      ["Kyoto Univ. — Admissions", "https://www.kyoto-u.ac.jp/en/admissions", "Grad. School of Letters"],
-      ["Hitotsubashi — Grad. School of Social Sciences", "https://www.hit-u.ac.jp/en/admissions/", "English programme"],
-    ],
-  },
-  socialwork: {
-    uk: [
-      ["Univ. of Bristol — School for Policy Studies", "https://www.bristol.ac.uk/sps/", "SW PhD studentships"],
-      ["Univ. of York — Social Policy & Social Work", "https://www.york.ac.uk/spsw/", "PhD & DSW routes"],
-      ["Univ. of Edinburgh — Social & Political Science", "https://www.ed.ac.uk/social-policy", "SW-related PhDs"],
-      ["Univ. of Birmingham — Social Policy", "https://www.birmingham.ac.uk/schools/social-policy", "PhD studentships"],
-    ],
-    us: [
-      ["Univ. of Michigan — Social Work", "https://ssw.umich.edu/", "Funded doctoral program"],
-      ["Columbia — Social Work", "https://socialwork.columbia.edu/", "PhD full funding"],
-      ["UC Berkeley — Social Welfare", "https://socialwelfare.berkeley.edu/", "Funded PhD"],
-      ["Univ. of Washington — Social Work", "https://socialwork.uw.edu/", "Doctoral funding"],
-      ["WashU — Brown School", "https://brownschool.washu.edu/", "Funded PhD, no GRE"],
-      ["NYU — Silver School of Social Work", "https://silver.nyu.edu/", "PhD funding"],
-    ],
-    de: [
-      ["Univ. of Kassel — Sozialwesen", "https://www.uni-kassel.de/", "Doctoral options in social work"],
-      ["Alice Salomon Hochschule Berlin", "https://www.ash-berlin.eu/", "Practice-research PhD"],
-      ["Goethe-Univ. Frankfurt — Erziehungswissenschaften", "https://www.uni-frankfurt.de/", "SW doctorates"],
-    ],
-    jp: [
-      ["Sophia Univ. — Admissions (Human Sciences)", "https://www.sophia.ac.jp/eng/admissions/", "English programmes"],
-      ["Ochanomizu Univ. — Admissions", "https://www.ocha.ac.jp/en/", "Gender & social policy"],
-      ["Japan College of Social Work", "https://www.jcsw.ac.jp/", "Specialist SW graduate school"],
-    ],
-  },
-  buddhist: {
-    uk: [
-      ["Oxford — Buddhist Studies Centre (OCHS)", "https://www.ochs.org.uk/", "Research & affiliated PhD routes"],
-      ["Oxford — Faculty of Theology & Religion", "https://www.theology.ox.ac.uk/", "DPhil in Oriental Studies"],
-      ["Cambridge — Faculty of Divinity", "https://www.divinity.cam.ac.uk/", "PhD & Trust scholarships"],
-      ["SOAS — Religions & Philosophies", "https://www.soas.ac.uk/religions-philosophies/", "Buddhism PhD, London"],
-    ],
-    us: [
-      ["UC Berkeley — Center for Buddhist Studies", "https://buddhiststudies.berkeley.edu/", "PhD via EALC/Group in Buddhist Studies"],
-      ["Columbia — EALAC", "https://ealac.columbia.edu/", "Buddhist studies PhD, full funding"],
-      ["Univ. of Chicago — Divinity School", "https://divinity.uchicago.edu/", "PhD incl. Buddhist studies"],
-      ["Mangalam Research Center", "https://mangalamresearch.org/", "Research fellowships (Berkeley, CA)"],
-      ["Harvard — Divinity School / EALC", "https://hds.harvard.edu/", "PhD study of religion"],
-    ],
-    de: [
-      ["LMU Munich — Indologie & Tibetologie", "https://www.indologie.uni-muenchen.de/", "Buddhist studies doctorates"],
-      ["Univ. of Hamburg — Asien-Afrika-Institut", "https://www.aai.uni-hamburg.de/", "Numata Chair in Buddhist Studies"],
-      ["Heidelberg — South Asia Institute", "https://www.sai.uni-heidelberg.de/", "Buddhist studies research"],
-      ["MPI Study of Religious & Ethnic Diversity", "https://www.mmg.mpg.de/", "Paid doctoral researchers (Göttingen)"],
-    ],
-    jp: [
-      ["Kyoto Univ. — Grad. School of Letters", "https://www.kyoto-u.ac.jp/en/admissions", "Buddhist studies dept"],
-      ["Ryukoku Univ. (Kyoto)", "https://www.ryukoku.ac.jp/english/", "Buddhist culture & Jodo-Shin research"],
-      ["Taisho Univ. (Tokyo)", "https://www.tais.ac.jp/", "Buddhist studies, English track"],
-      ["Otani Univ. (Kyoto)", "https://www.otani.ac.jp/english/", "Shin Buddhist studies"],
-      ["Univ. of Tokyo — Graduate School of Humanities", "https://www.u-tokyo.ac.jp/en/admissions.html", "Indian & Buddhist studies section"],
-    ],
-  },
-};
+const esc = s => String(s ?? "").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
+const escX = s => String(s ?? "").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
+const $ = id => document.getElementById(id);
 
-// Deadlines — verified 19 Sep 2026. v=true: from official page. c=false: recurring cycle.
-const SCHOLARSHIPS = [
-  { n:"Chevening Scholarship 2027/28", c:"UK", d:"2026-10-06", v:true, t:"6 Oct 2026, 11:00 UTC", u:"https://www.chevening.org/apply/", note:"Fully funded master's (not PhD, but funds pre-PhD year); any subject incl. all three fields." },
-  { n:"Gates Cambridge 2027/28", c:"UK", d:"2026-10-14", v:true, t:"US round: 14 Oct 2026 · International: 8 Dec 2026 or 6 Jan 2027 (course-dependent)", u:"https://www.gatescambridge.org/apply/timeline/", note:"Full-cost PhD at Cambridge, all subjects. Apply via course application." },
-  { n:"Rhodes Scholarship (Oxford)", c:"UK", d:"2026-10-01", v:false, t:"Typically early Oct 2026 for 2027 entry", u:"https://www.rhodeshouse.ox.ac.uk/scholarships/the-rhodes-scholarship/", note:"Full DPhil funding; national constituencies + Global." },
-  { n:"Commonwealth PhD Scholarships", c:"UK", d:"2026-10-15", v:false, t:"Window typically Sep–Oct/Nov 2026", u:"https://cscuk.fcdo.gov.uk/scholarships/commonwealth-phd-scholarships/", note:"For citizens of low/middle-income Commonwealth countries." },
-  { n:"Clarendon Fund (Oxford)", c:"UK", d:"2027-01-08", v:false, t:"Auto-considered with Oxford application (course deadlines Dec–Jan)", u:"https://www.ox.ac.uk/clarendon", note:"~130 full scholarships/yr, all subjects, no separate application." },
-  { n:"DAAD Research Grants — Doctoral Programmes", c:"Germany", d:"2026-10-15", v:true, t:"15 Oct 2026 for Oct 2027 start (varies by country programme)", u:"https://www.daad.de/en/studying-in-germany/scholarships/", note:"€1,400+/month; one-year research or full doctoral grants." },
-  { n:"Heinrich Böll Foundation Doctoral Funding", c:"Germany", d:"2027-03-01", v:false, t:"1 March & 1 September annually", u:"https://www.boell.de/en/scholarships", note:"Green-affiliated; strong fit for sociology & social movements." },
-  { n:"Fulbright Foreign Student Program", c:"US", d:null, v:false, t:"Country-specific, typically Feb–Oct 2026 for 2027", u:"https://foreign.fulbrightonline.org/", note:"Apply via your country's commission; PhD study in US." },
-  { n:"AAUW International Fellowships", c:"US", d:"2026-11-15", v:false, t:"15 Nov annually", u:"https://www.aauw.org/resources/programs/fellowships-grants/current-opportunities/international/", note:"Women, full-time grad/PhD study in the US, $20–50k." },
-  { n:"Ford Foundation Predoctoral Fellowship", c:"US", d:"2026-12-15", v:false, t:"Typically mid-Dec", u:"https://sites.nationalacademies.org/PGA/Ford/PGA_171531", note:"US citizens only; social sciences strongly represented." },
-  { n:"MEXT Scholarship — Embassy Track (Japan)", c:"Japan", d:null, v:true, t:"CLOSED for 2027 intake (was Apr–May 2026) · next opens ~Apr–May 2027 for 2028", u:"https://www.studyinjapan.go.jp/en/smap-stopj-applications-research.html", note:"Full PhD funding incl. flights; apply via Japanese embassy in your country." },
-  { n:"MEXT Scholarship — University Track (Japan)", c:"Japan", d:null, v:false, t:"Varies by university; often autumn windows", u:"https://www.studyinjapan.go.jp/en/", note:"University recommends you to MEXT; contact a professor first." },
-  { n:"ADB–Japan Scholarship Program", c:"Japan/Asia-Pac.", d:null, v:false, t:"~6 months before intake; check designated universities", u:"https://www.adb.org/work-with-us/careers/japan-scholarship-program", note:"Covers designated programs incl. Japanese universities." },
-];
+// ================= profile persistence =================
+const PKEYS = ["pCV","pTISS","pThesis","pProposal","pMode"];
+function loadProfile(){ try{ const p=JSON.parse(localStorage.getItem("fmc_profile")||"{}"); PKEYS.forEach(k=>{ if(p[k]!==undefined) $(k).value=p[k]; }); }catch{} }
+function saveProfile(){ const p={}; PKEYS.forEach(k=>p[k]=$(k).value); localStorage.setItem("fmc_profile",JSON.stringify(p)); $("saveStatus").textContent="saved ✓"; setTimeout(()=>$("saveStatus").textContent="",1500); }
+$("saveProfileBtn").onclick=saveProfile; loadProfile();
 
-// ---------------- build panels ----------------
-const panels = document.getElementById("panels");
-Object.entries(DISCIPLINES).forEach(([dKey, d], dIdx) => {
-  const panel = document.createElement("div");
-  panel.className = "panel" + (dIdx === 0 ? " active" : "");
-  panel.dataset.d = dKey;
+// ================= autofill parser (messy-paste-proof) =================
+const JUNK = /screen reader|donate|new website|enter your keyword|skip to|\bmenu\b|\bhome\b|\babout\b|contact us|career at|guest house|e-?newsletter|alumni|download forms|tender|events \/?|photo gallery|important days|holidays|guest|login|sign in|search|language|cookie|privacy|javascript|click here|\ba a\b/gi;
+const KNOWN_FIELDS = /(Buddhist Studies|Religious Studies|Sociology|Social Work|Theology|Indology|South Asian Studies|Anthropology|Marathi|Hindi|Bengali|Sanskrit|Pali|Prakrit|Tibetan|Philosophy|History|Economics|Political Science|Psychology|Education|Linguistics|Literature)/i;
 
-  // search card
-  const searchCard = document.createElement("div");
-  searchCard.className = "card";
-  searchCard.innerHTML = `<h2>🔎 One-click searches — ${d.label}</h2><p class="hint">Pick a country, then open a search. Links are pre-filtered.</p><div class="ctabs"></div><div class="cbody"></div>`;
-  const ctabs = searchCard.querySelector(".ctabs");
-  const cbody = searchCard.querySelector(".cbody");
-  Object.entries(COUNTRIES).forEach(([cKey, c], cIdx) => {
-    const b = document.createElement("button");
-    b.className = "ctab" + (cIdx === 0 ? " active" : "");
-    b.textContent = c.label;
-    b.onclick = () => {
-      searchCard.querySelectorAll(".ctab").forEach(x => x.classList.remove("active"));
-      b.classList.add("active");
-      cbody.querySelectorAll(".cgroup").forEach(g => g.classList.toggle("active", g.dataset.c === cKey));
-    };
-    ctabs.appendChild(b);
-    const g = document.createElement("div");
-    g.className = "cgroup" + (cIdx === 0 ? " active" : "");
-    g.dataset.c = cKey;
-    const grid = document.createElement("div");
-    grid.className = "grid";
-    SOURCES.forEach(s => {
-      const a = document.createElement("a");
-      a.className = "btn";
-      a.target = "_blank"; a.rel = "noopener";
-      a.href = s.url(d) + (s.name === "LinkedIn Jobs" ? `&location=${enc(c.loc)}` : "");
-      a.innerHTML = `${s.name} <span class="pill">${c.label}</span><small>${s.desc(d)}</small>`;
-      grid.appendChild(a);
-    });
-    g.appendChild(grid);
-    cbody.appendChild(g);
-  });
-  panel.appendChild(searchCard);
+function titleCase(s){ return s.split(/\s+/).map(w=>w? w[0].toUpperCase()+w.slice(1).toLowerCase() : w).join(" "); }
 
-  // universities card
-  const uniCard = document.createElement("div");
-  uniCard.className = "card";
-  uniCard.innerHTML = `<h2>🏛️ Universities & faculties — ${d.label}</h2><p class="hint">Apply directly: funded studentships, RA/TA packages, salaried positions. Deadlines live on each page.</p><div class="uni-body"></div>`;
-  const ub = uniCard.querySelector(".uni-body");
-  Object.entries(UNIS[dKey]).forEach(([cKey, list]) => {
-    const h = document.createElement("div");
-    h.className = "country-h";
-    h.textContent = COUNTRIES[cKey].label;
-    ub.appendChild(h);
-    const ul = document.createElement("ul");
-    ul.className = "uni-list";
-    list.forEach(([n, u, note]) => {
-      const li = document.createElement("li");
-      li.innerHTML = `<span><span class="uni-name">${n}</span><span class="uni-note">${note}</span></span><a class="plain" target="_blank" rel="noopener" href="${u}">Open ↗</a>`;
-      ul.appendChild(li);
-    });
-    ub.appendChild(ul);
-  });
-  panel.appendChild(uniCard);
-  panels.appendChild(panel);
-});
-
-document.querySelectorAll("#tabs .tab").forEach(t => {
-  t.onclick = () => {
-    document.querySelectorAll("#tabs .tab").forEach(x => x.classList.remove("active"));
-    t.classList.add("active");
-    document.querySelectorAll(".panel").forEach(p => p.classList.toggle("active", p.dataset.d === t.dataset.d));
-  };
-});
-
-// ---------------- scholarships table ----------------
-const tbody = document.querySelector("#schTable tbody");
-const today = new Date(); today.setHours(0, 0, 0, 0);
-SCHOLARSHIPS.forEach(s => {
-  const tr = document.createElement("tr");
-  let badge, daysHtml = "";
-  if (s.d) {
-    const dl = new Date(s.d + "T23:59:00");
-    const diff = Math.ceil((dl - today) / 86400000);
-    if (diff >= 0) {
-      badge = s.v ? '<span class="badge b-verified">✓ verified</span>' : '<span class="badge b-typical">~ typical cycle</span>';
-      daysHtml = `<span class="days ${diff <= 30 ? "soon" : ""}">${diff === 0 ? "DUE TODAY" : "in " + diff + " days"}</span>`;
-    } else {
-      badge = '<span class="badge b-closed">passed — next cycle</span>';
-      daysHtml = `<span class="days">check page for next window</span>`;
+function autofillFromParse(silent){
+  const raw = $("rawPaste").value.trim();
+  if(!raw){ if(!silent) $("autofillStatus").textContent="paste something first"; return false; }
+  const lines = raw.split(/\n+/).map(s=>s.trim()).filter(Boolean);
+  const val = {};
+  const LABEL_RES = [
+    ["name", /^name\b:?$/i, /^(date of joining|designation|department|address|phone|e-?mail|google scholar|research gate|vidwan|cv|webpage)\b/i],
+    ["designation", /^designation\b:?$/i, /^(date of joining|department|address|phone|e-?mail|google scholar|research gate|vidwan|cv|webpage)\b/i],
+    ["department", /^department\b/i, /^(address|phone|e-?mail|google scholar|research gate|vidwan|cv|webpage|date of joining)\b/i],
+    ["email", /^e-?mail\b:?$/i, /^(google scholar|research gate|vidwan|cv|webpage|phone)\b/i],
+    ["university", /^(university|institution|affiliation)\b:?$/i, /^(department|designation|address|phone)\b/i],
+    ["interests", /^(research interests?|interests?|research|focus|work)\b:?$/i, /^(google scholar|research gate|vidwan|cv|webpage|department)\b/i],
+  ];
+  lines.forEach((l,i)=>{
+    const inline = l.match(/^(name|designation|department|e-?mail|email|university|institution|research interests?|interests?)\s*[:\-]\s*(.+)$/i);
+    if(inline){ const k = inline[1].toLowerCase()==="e-mail"?"email":inline[1].toLowerCase(); val[k] = inline[2].trim(); return; }
+    for(const [key, re, stopRe] of LABEL_RES){
+      if(re.test(l)){
+        for(let j=i+1;j<lines.length;j++){
+          const nl = lines[j];
+          if(stopRe.test(nl) || /^(university|institution|research interests?|interests?|research|focus|work)\b:?$/i.test(nl)) break;
+          if(JUNK.test(nl)){ JUNK.lastIndex=0; continue; }
+          JUNK.lastIndex = 0;
+          if(nl.length<2) continue;
+          val[key] = nl; break;
+        }
+      }
     }
-  } else {
-    badge = s.v ? '<span class="badge b-closed">closed / window-based</span>' : '<span class="badge b-typical">window varies</span>';
-  }
-  tr.innerHTML = `
-    <td><a class="plain" target="_blank" rel="noopener" href="${s.u}">${s.n}</a><span class="days">${s.note}</span></td>
-    <td>${s.c}</td>
-    <td>${s.t}${daysHtml}</td>
-    <td>${badge}</td>`;
-  tbody.appendChild(tr);
-});
-
-// ---------------- live feeds (realtime, in-browser) ----------------
-const LIVE_SOURCES = [
-  { name: "EURAXESS", kw: "sociology", url: "https://r.jina.ai/https://euraxess.ec.europa.eu/jobs/search?keywords=sociology", re: /\[([^\]]{10,200})\]\((https:\/\/euraxess\.ec\.europa\.eu\/jobs\/\d+[^)\s]*)\)/g },
-  { name: "EURAXESS", kw: "social work", url: "https://r.jina.ai/https://euraxess.ec.europa.eu/jobs/search?keywords=social%20work", re: /\[([^\]]{10,200})\]\((https:\/\/euraxess\.ec\.europa\.eu\/jobs\/\d+[^)\s]*)\)/g },
-  { name: "EURAXESS", kw: "buddhism", url: "https://r.jina.ai/https://euraxess.ec.europa.eu/jobs/search?keywords=buddhism", re: /\[([^\]]{10,200})\]\((https:\/\/euraxess\.ec\.europa\.eu\/jobs\/\d+[^)\s]*)\)/g },
-  { name: "jobs.ac.uk", kw: "sociology", url: "https://r.jina.ai/https://www.jobs.ac.uk/search/?keywords=sociology", re: /\[([^\]]{10,200})\]\((https:\/\/www\.jobs\.ac\.uk\/job\/[A-Z0-9]+\/[^)\s]+)\)/g },
-  { name: "jobs.ac.uk", kw: "social work", url: "https://r.jina.ai/https://www.jobs.ac.uk/search/?keywords=social%20work", re: /\[([^\]]{10,200})\]\((https:\/\/www\.jobs\.ac\.uk\/job\/[A-Z0-9]+\/[^)\s]+)\)/g },
-  { name: "jobs.ac.uk", kw: "buddhism", url: "https://r.jina.ai/https://www.jobs.ac.uk/search/?keywords=buddhism", re: /\[([^\]]{10,200})\]\((https:\/\/www\.jobs\.ac\.uk\/job\/[A-Z0-9]+\/[^)\s]+)\)/g },
-];
-let ALL_JOBS = [], feedFilter = "all";
-
-function cleanJob(s = "") { return s.replace(/&amp;/g, "&").replace(/\s+/g, " ").trim(); }
-
-function renderFeed() {
-  const box = document.getElementById("feedResults");
-  box.innerHTML = "";
-  const shown = ALL_JOBS.filter(j => feedFilter === "all" || j.kw === feedFilter || (feedFilter === "buddhist" && j.kw === "buddhism"));
-  shown.forEach(j => {
-    const div = document.createElement("div");
-    div.className = "job";
-    div.innerHTML = `<a href="${j.link}" target="_blank" rel="noopener">${j.title}</a><div class="meta">${j.source} · ${j.kw}</div>`;
-    box.appendChild(div);
   });
-  if (!shown.length) box.innerHTML = `<p class="feeds">No postings${feedFilter !== "all" ? " for “" + feedFilter + "”" : ""} right now — try Refresh.</p>`;
-}
 
-function setFeedStatus(txt) { document.getElementById("feedStatus").textContent = txt; }
-
-async function loadSnapshot() {
-  try {
-    let data = window.FEEDS_DATA; // inlined in share.html
-    if (!data) {
-      const res = await fetch("./feeds.json");
-      if (!res.ok) throw new Error();
-      data = await res.json();
-    }
-    if (ALL_JOBS.length) return false; // live data already present — keep it
-    ALL_JOBS = data.jobs || [];
-    setFeedStatus(`${ALL_JOBS.length} results · snapshot ${new Date(data.fetched).toLocaleString()} (offline mode)`);
-    renderFeed();
-    return true;
-  } catch { return false; }
-}
-
-async function fetchLive() {
-  setFeedStatus("fetching live…");
-  const settled = await Promise.allSettled(LIVE_SOURCES.map(async s => {
-    const ctrl = new AbortController();
-    const timer = setTimeout(() => ctrl.abort(), 30000);
-    try {
-      const r = await fetch(s.url, { signal: ctrl.signal });
-      if (!r.ok) throw new Error("HTTP " + r.status);
-      const text = await r.text();
-      if (/Just a moment/i.test(text.slice(0, 500))) throw new Error("blocked");
-      const jobs = []; let m;
-      s.re.lastIndex = 0;
-      while ((m = s.re.exec(text)) !== null) jobs.push({ title: cleanJob(m[1]), link: m[2], source: s.name, kw: s.kw });
-      return jobs;
-    } finally { clearTimeout(timer); }
-  }));
-  const merged = [];
-  const seen = new Set();
-  let okCount = 0;
-  settled.forEach(r => { if (r.status === "fulfilled") { okCount++; merged.push(...r.value); } });
-  const jobs = merged.filter(j => (seen.has(j.link) ? false : (seen.add(j.link), true)));
-  if (!jobs.length) {
-    const hadSnapshot = await loadSnapshot();
-    if (!hadSnapshot) setFeedStatus("live fetch failed — no snapshot available");
-    return;
+  // name
+  let name = (val.name||"").replace(/[,;]+$/,"").trim();
+  if(!name){
+    const cand = lines.find(l=>!/https?:|@|\d{3,}/.test(l) && l.split(/\s+/).length<=6 && l.length>5 && !JUNK.test(l));
+    JUNK.lastIndex = 0;
+    if(cand) name = cand.replace(/^(prof\.?\s*dr\.?|prof\.?|professor|dr\.?)\s*/i,"").replace(/[,;]+$/,"").trim();
   }
-  ALL_JOBS = jobs;
-  setFeedStatus(`${jobs.length} live results · ${okCount}/${LIVE_SOURCES.length} sources · ${new Date().toLocaleTimeString()}`);
-  renderFeed();
+  if(name){
+    if(/^[A-Z\s.\u2019'-]+$/.test(name)) name = titleCase(name); // RANVIR SUMEDH -> Ranvir Sumedh
+    $("fName").value = name;
+  }
+  // title — designation-aware
+  const desig = val.designation||"";
+  const nameLine = lines.find(l=>/prof|dr\.?/i.test(l))||"";
+  let title = $("fTitle").value;
+  if(/prof\.?\s*dr|professor\s+dr/i.test(desig+" "+nameLine)) title = "Professor Dr";
+  else if(/^\s*professor\b/i.test(desig) && !/assistant|associate|adjunct|visiting/i.test(desig)) title = "Professor";
+  else if(/assistant|associate|adjunct|visiting/i.test(desig)) title = "Dr";
+  else if(/\bprofessor\b/i.test(nameLine) && !/assistant|associate/i.test(nameLine)) title = "Professor";
+  else if(/\bdr\.?\b/i.test(nameLine)) title = "Dr";
+  if(/assistant|associate|adjunct|visiting/i.test(desig)) title = "Dr"; // designation wins
+  $("fTitle").value = title;
+
+  // university — line-based, skipping junk lines
+  let uni = val.university || "";
+  if(!uni){
+    const cleanLines = lines.filter(l=>!JUNK.test(l)); JUNK.lastIndex=0;
+    const uniLine = cleanLines.find(l=>/Visva-?Bharati/i.test(l))
+      || cleanLines.find(l=>/(University of [A-Z][\w-]+|[A-Z][\w\u2019'-]+(\s+[A-Z][\w\u2019'-]+)*\s+(University|Vidyapith|Vishwavidyalaya|Mahavidyalaya)|Universit[\u00e0t\u00e4]{1,2} [\w-]+|[A-Z][\w\u2019'-]+ College)/.test(l) && l.length<70);
+    if(uniLine) uni = uniLine.replace(/^[^\w]*(Address\b[^:]*:?\s*)?/,"").trim();
+  }
+  if(uni) $("fUni").value = uni.replace(/[.,;]+$/,"");
+
+  // department — prefer direct "Department of X" hit
+  let dept = "";
+  const dDirect = raw.match(/((?:Department|Dept\.?)\s+of\s+[^,\n]{2,50})/i);
+  if(dDirect) dept = dDirect[1].trim();
+  if(!dept){
+    const dAlt = raw.match(/((?:Numata|Centre|Center|Institute|Chair|School|Faculty|Seminar|Bhasha Bhavana)[^\n,;]{3,60})/i);
+    if(dAlt) dept = dAlt[1].trim();
+  }
+  if(!dept && val.department) dept = val.department.split(",")[0].trim();
+  if(dept) $("fDept").value = dept.replace(/[.,;]+$/,"");
+
+  // field — from department "Department of X" or known fields
+  let field = "";
+  const dm2 = (dept||"").match(/(?:Department|Dept\.?)\s+of\s+([\w\s&]+)$/i);
+  if(dm2) field = dm2[1].trim();
+  const fm = raw.match(KNOWN_FIELDS);
+  if(!field && fm) field = fm[1];
+  if(field) $("fField").value = field;
+
+  // interests
+  if(val.interests) $("fInterests").value = val.interests.replace(/\s+/g," ").trim();
+
+  // email (records only)
+  const em = val.email || (raw.match(/[\w.+-]+@[\w-]+\.[\w.-]+/)||[])[0];
+  if(em) $("fEmail").value = em.trim();
+
+  // country
+  const c = raw.toLowerCase();
+  if(/india|indian|\bac\.in\b|santiniketan|visva-?bharati|vidyapith|inflibnet|\biit\b|\biim\b|\bnit\b/.test(c)) $("fCountry").value="in";
+  else if(/germany|german\b|\bm\u00fcnchen\b|berlin|hamburg|bochum|heidelberg|t\u00fcbingen|\.de\b/.test(c)) $("fCountry").value="de";
+  else if(/united kingdom|\buk\b|britain|oxford|cambridge|london|edinburgh|\.ac\.uk\b/.test(c)) $("fCountry").value="uk";
+  else if(/united states|\busa\b|america|\.edu\b/.test(c)) $("fCountry").value="us";
+  else if(/japan|japanese|tokyo|kyoto|\.ac\.jp\b/.test(c)) $("fCountry").value="jp";
+
+  ["fName","fUni","fDept","fField","fEmail","fInterests"].forEach(id=>{ if($(id).value.trim()) $(id).classList.add("filled"); });
+  if(!silent){ $("autofillStatus").textContent="filled — now verify ✓"; setTimeout(()=>$("autofillStatus").textContent="",2500); }
+  update();
+  return !!(val.name || name);
+}
+$("autofillBtn").onclick = () => autofillFromParse(false);
+
+// ================= research engine =================
+const uddg = u => { const m = u.match(/[?&]uddg=([^&]+)/); return m ? decodeURIComponent(m[1]) : u; };
+async function proxyText(url, ms=30000){
+  const ctrl = new AbortController(); const t = setTimeout(()=>ctrl.abort(), ms);
+  try{
+    const r = await fetch(PROXY(url), { signal: ctrl.signal });
+    if(!r.ok) throw new Error("HTTP "+r.status);
+    const txt = await r.text();
+    if(/Just a moment|Target URL returned error/i.test(txt.slice(0,400))) throw new Error("blocked/captcha");
+    return txt;
+  } finally { clearTimeout(t); }
+}
+function logLine(s){ const l=$("researchLog"); l.textContent += (l.textContent? "\n":"") + s; l.scrollTop = l.scrollHeight; }
+
+async function webSearch(query){
+  // try DDG-lite, then Bing; return [{title,url,snippet}]
+  const endpoints = [
+    ["duckduckgo-lite", "https://lite.duckduckgo.com/lite/?q=" + encodeURIComponent(query)],
+    ["duckduckgo-html", "https://html.duckduckgo.com/html/?q=" + encodeURIComponent(query)],
+    ["bing", "https://www.bing.com/search?q=" + encodeURIComponent(query)],
+  ];
+  for(const [name, ep] of endpoints){
+    try{
+      logLine("· searching " + name + "…");
+      const txt = await proxyText(ep);
+      const out = [];
+      // markdown links
+      const re = /\[([^\]\[]{6,180})\]\((https?:\/\/[^\s)]+)\)/g; let m;
+      while((m = re.exec(txt)) !== null){
+        let url = uddg(m[2]);
+        if(/duckduckgo\.com|bing\.com|microsoft|\.css|\.js|\.png|\.ico/i.test(url)) continue;
+        const title = m[1].replace(/\*\*/g,"").trim();
+        if(title.length < 8) continue;
+        // snippet: text after this match up to next link
+        const after = txt.slice(m.index + m[0].length, m.index + m[0].length + 400);
+        const snippet = after.split(/\n\d*\.\s|\n\[|\n#/)[0].replace(/\*\*/g,"").replace(/\s+/g," ").trim().slice(0,220);
+        if(!out.some(o=>o.url===url)) out.push({title, url, snippet});
+        if(out.length >= 12) break;
+      }
+      if(out.length) { logLine("  ✓ " + out.length + " results from " + name); return out; }
+      logLine("  ✗ no results from " + name);
+    }catch(e){ logLine("  ✗ " + name + " failed: " + e.message); }
+  }
+  return [];
 }
 
-document.getElementById("refreshBtn").onclick = fetchLive;
-document.querySelectorAll(".fchip").forEach(b => {
-  b.onclick = () => {
-    document.querySelectorAll(".fchip").forEach(x => x.classList.remove("active"));
-    b.classList.add("active");
-    feedFilter = b.dataset.fk;
-    renderFeed();
-  };
-});
-fetchLive(); // realtime on page load
+function classify(url){
+  const u = url.toLowerCase();
+  if(/scholar\.google\./.test(u)) return "scholar";
+  if(/\.edu|\.ac\.|uni-|univ|\.edu\./.test(u)) return "university";
+  if(/linkedin\.com\/in/.test(u)) return "linkedin";
+  if(/researchgate|orcid|academia\.edu/.test(u)) return "profile";
+  return "web";
+}
+
+function extractFacts(text, url, name){
+  const facts = [];
+  const add = (kind, value, note) => facts.push({kind, value, url, note});
+  const first = (name.split(/\s+/)[0]||"").replace(/[^\p{L}]/gu,"");
+  // title evidence
+  const profDr = text.match(/Prof\.?\s*Dr\.?|Professor\s+Dr\.?/i);
+  const prof = text.match(/\bProf\.?\b|\bProfessor\b/i);
+  const dr = text.match(/\bDr\.?\b|Ph\.?D|PD\s/i);
+  const desig = text.match(/\bDesignation\b\s*[:\-]?\s*((?:Assistant|Associate|Adjunct|Visiting)?\s*Professor)/i);
+  if(desig) add("title", /assistant|associate|adjunct|visiting/i.test(desig[1]) ? "Dr" : "Professor", "designation: " + desig[1].trim());
+  else if(profDr) add("title","Professor Dr","page shows “Prof. Dr.”");
+  else if(prof) add("title","Professor","page shows “Prof./Professor”");
+  else if(dr) add("title","Dr","page shows “Dr./PhD”");
+  // pronoun evidence for gender
+  const he = new RegExp("\\b(he|his|him)\\b[^.]{0,60}"+(first||""), "i").test(text) || new RegExp((first||"")+"[^.]{0,80}\\b(he|his|him)\\b","i").test(text);
+  const she = new RegExp("\\b(she|her|hers)\\b[^.]{0,60}"+(first||""), "i").test(text) || new RegExp((first||"")+"[^.]{0,80}\\b(she|her|hers)\\b","i").test(text);
+  const herr = /\bHerr\b/i.test(text) ? "male" : (/\bFrau\b/i.test(text) ? "female" : null);
+  if(he||herr==="male") add("gender","male","pronoun evidence near name");
+  else if(she||herr==="female") add("gender","female","pronoun evidence near name");
+  // department / centre
+  const dept = text.match(/((?:Numata|Department|Centre|Center|Institute|Chair|School|Faculty|Seminar)[^\n.,;]{3,70}(?:Studies|Buddhist|Religion|Sociology|Social Work|Theology|Studies))/i);
+  if(dept) add("dept", dept[1].replace(/\s+/g," ").trim(), "found on page");
+  // research interests
+  const inter = text.match(/(?:research\s+interests?|research\s+focus(?:es)?(?:\s+on)?|focus(?:es)?\s+on|interests?)\s*[:\-]?\s*([^\n.]{15,240})/i);
+  if(inter) add("interests", inter[1].replace(/\s+/g," ").trim(), "stated on page");
+  // publication-ish lines
+  const pubRe = /(?:^|\n)\s*(?:[-•*\d.]+\s*)?([A-Z][^.\n]{25,140}(?:Buddhis\w*|religio\w*|societ\w*|caste|ethics|mindfulness|Dalit|Ambedkar|Indian|Asian)[^.\n]{0,80})\.?\s*(?:\((?:19|20)\d\d\)|(?:19|20)\d\d)?/g;
+  let pm, pubs = 0;
+  while((pm = pubRe.exec(text)) !== null && pubs < 4){
+    const t = pm[1].replace(/\s+/g," ").trim();
+    if(t.length > 30 && !/http|cookie|privacy|login|@/.test(t)){ add("publication", t, "appears on their page"); pubs++; }
+  }
+  return facts;
+}
+
+const SOURCES = []; let FACTS = [];
+$("researchBtn").onclick = async () => {
+  autofillFromParse(true); // silently parse messy pastes first
+  const name = $("fName").value.trim();
+  const uni = $("fUni").value.trim();
+  if(!name){ $("autofillStatus").textContent="enter a name or paste info first"; return; }
+  $("researchBtn").disabled = true;
+  $("researchBtn").innerHTML = '<span class="spin"></span>Researching…';
+  $("researchLog").textContent = ""; $("researchPanel").style.display = "none";
+  SOURCES.length = 0; FACTS.length = 0;
+
+  try{
+    // 1) web search (title-cased name searches better)
+    const qName = name.replace(/\b[\p{L}]+\b/gu, w => w[0].toUpperCase()+w.slice(1).toLowerCase());
+    const q = [qName, uni, "professor"].filter(Boolean).join(" ");
+    const results = await webSearch(q);
+    // 1b) scholar-specific search
+    const sResults = await webSearch(qName + " " + uni + " google scholar");
+    let all = [...results, ...sResults];
+    // 1c) direct URLs from the paste — always surfaced (Scholar profile, Vidwan, CV …)
+    const pasteUrls = [];
+    const sm = $("rawPaste").value.match(/https?:\/\/scholar\.google\.[a-z.]+\/citations\?[^\s]+/i);
+    if(sm) pasteUrls.push({title:"Google Scholar profile — open & verify", url: sm[0], snippet:"from your paste", kind:"scholar"});
+    ($("rawPaste").value.match(/https?:\/\/[^\s]+/g)||[]).forEach(u=>{
+      if(/scholar\.google/i.test(u) || /^https?:\/\/r\.jina/i.test(u)) return;
+      if(!pasteUrls.some(p=>p.url===u)) pasteUrls.push({title:"Link from your paste — open & verify", url:u, snippet:"from your paste", kind:"profile"});
+    });
+    // dedupe scholar profiles by user id (different TLDs = same profile)
+    const seenScholar = new Set();
+    all = all.filter(r=>{ if(/scholar\.google/.test(r.url)){ const id=(r.url.match(/user=([\w-]+)/)||[])[1]; if(!id) return false; if(seenScholar.has(id)) return false; seenScholar.add(id); } return true; });
+    // dedupe + classify + prioritise
+    const seen = new Set();
+    [...pasteUrls, ...all].forEach(r => { const u = r.url; if(seen.has(u)) return; seen.add(u); r.kind = r.kind || classify(u); SOURCES.push(r); });
+    SOURCES.sort((a,b)=>({scholar:0,university:1,profile:2,linkedin:3,web:4}[a.kind]-{scholar:0,university:1,profile:2,linkedin:3,web:4}[b.kind]));
+    logLine("· found " + SOURCES.length + " unique sources");
+
+    // 2) fetch top university/profile pages (max 2) for fact extraction
+    const fetchables = SOURCES.filter(s => ["university","profile"].includes(s.kind)).slice(0,2);
+    for(const s of fetchables){
+      try{
+        logLine("· reading " + s.url.slice(0,70) + "…");
+        const txt = await proxyText(s.url);
+        const facts = extractFacts(txt, s.url, name);
+        FACTS.push(...facts);
+        logLine("  ✓ extracted " + facts.length + " candidate facts");
+      }catch(e){ logLine("  ✗ read failed: " + e.message); }
+    }
+    // 3) scholar profile link is always surfaced as a source (user opens it)
+    // dedupe facts by kind+value
+    const fseen = new Set();
+    let uniq = FACTS.filter(f => { const k=f.kind+"|"+f.value.toLowerCase(); if(fseen.has(k)) return false; fseen.add(k); return true; });
+    // if a designation-based title exists, drop generic page-mention titles
+    const hasDesigTitle = uniq.some(f=>f.kind==="title" && f.note.startsWith("designation:"));
+    if(hasDesigTitle) uniq = uniq.filter(f=>f.kind!=="title" || f.note.startsWith("designation:"));
+    FACTS = uniq;
+    renderResearch();
+  } finally {
+    $("researchBtn").disabled = false;
+    $("researchBtn").innerHTML = "🔍 Research faculty on the internet";
+  }
+};
+
+function renderResearch(){
+  const sl = $("srcList"); sl.innerHTML = "";
+  if(!SOURCES.length) sl.innerHTML = '<p class="hint">No sources found. The text proxy may be rate-limited (wait ~30 s and press Research again) — but any Google Scholar / university links in your paste are always surfaced after ⚡ Auto-fill.</p>';
+  SOURCES.slice(0,10).forEach(s=>{
+    const d = document.createElement("div"); d.className = "src";
+    const badge = {scholar:'<span class="badge b-ok">Scholar</span>',university:'<span class="badge b-ok">University</span>',profile:'<span class="badge b-warn">Profile</span>',linkedin:'<span class="badge b-warn">LinkedIn</span>',web:'<span class="badge b-warn">Web</span>'}[s.kind];
+    d.innerHTML = `<input type="checkbox" checked data-url="${esc(s.url)}"><div><span class="t">${esc(s.title.slice(0,110))}</span>${badge}<a class="u" href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.url)}</a><span class="s">${esc(s.snippet||"")}</span></div>`;
+    sl.appendChild(d);
+  });
+  $("srcCount").textContent = "(" + Math.min(SOURCES.length,10) + " shown — tick the ones you actually checked)";
+  const fl = $("factList"); fl.innerHTML = "";
+  FACTS.forEach(f=>{
+    const d = document.createElement("div"); d.className = "fact";
+    const kindLabel = {title:"Title",gender:"Gender evidence",dept:"Department",interests:"Research interests",publication:"Publication/Topic"}[f.kind];
+    d.innerHTML = `<input type="checkbox" ${f.kind==="title"||f.kind==="interests"?"checked":""} data-kind="${f.kind}" data-value="${esc(f.value)}" data-url="${esc(f.url)}"><div class="v"><b>${kindLabel}:</b> ${esc(f.value)} <a class="src-link" href="${esc(f.url)}" target="_blank" rel="noopener">source ↗</a> <span style="color:var(--dim);font-size:.72rem">(${esc(f.note)})</span></div>`;
+    fl.appendChild(d);
+  });
+  $("factCount").textContent = FACTS.length ? "(" + FACTS.length + ")" : "(none auto-extracted — open the sources and paste facts manually)";
+  $("researchPanel").style.display = "block";
+}
+
+$("applyFactsBtn").onclick = () => {
+  let applied = 0;
+  const interests = [];
+  document.querySelectorAll("#factList input:checked").forEach(cb=>{
+    const kind = cb.dataset.kind, v = cb.dataset.value;
+    if(kind==="title"){ $("fTitle").value = v==="Professor Dr" ? "Professor Dr" : v; applied++; }
+    else if(kind==="dept"){ $("fDept").value = v; applied++; }
+    else if(kind==="interests"){ interests.push(v); applied++; }
+    else if(kind==="publication"){ interests.push(v); applied++; }
+    // gender: salutation is already gender-safe; gender evidence shown for user confidence
+  });
+  if(interests.length) $("fInterests").value = interests.join("; ");
+  $("applyStatus").textContent = applied + " facts applied ✓";
+  setTimeout(()=>$("applyStatus").textContent="",2500);
+  update();
+};
+
+// ================= letter assembly =================
+function buildLetter(){
+  const name = $("fName").value.trim() || "Professor";
+  const parts = name.split(/\s+/); const surname = parts[parts.length-1];
+  const title = $("fTitle").value;
+  const uni = $("fUni").value.trim() || "your university";
+  const dept = $("fDept").value.trim();
+  const field = $("fField").value.trim() || "your discipline";
+  const interests = $("fInterests").value.trim() || "your broader research";
+  const remarks = $("fRemarks").value.trim();
+  const country = $("fCountry").value;
+  const mode = $("pMode").value;
+  const L = { cv:$("pCV").value.trim(), tiss:$("pTISS").value.trim(), thesis:$("pThesis").value.trim(), prop:$("pProposal").value.trim() };
+  const deptAt = dept ? `${dept}, ${uni}` : uni;
+  const opening = mode==="applied"
+    ? `I, Banani Sarkar, am writing to express my sincere interest in pursuing doctoral research at ${deptAt}. I have already submitted my application through the university admissions portal and wished to introduce myself directly while expressing my strong interest in your research on ${interests}.`
+    : `I, Banani Sarkar, am writing to express my sincere interest in pursuing doctoral research under your supervision in ${field} at ${uni}, and wished to introduce myself directly while expressing my strong interest in your research on ${interests}.`;
+
+  const paras = [];
+  paras.push([{t:`Dear ${title} ${surname},`}]);
+  const p1 = [{t:`     Hope this mail finds you well. ${opening}`}];
+  if(L.cv) p1.push({link:L.cv,label:"CV"});
+  paras.push(p1);
+
+  const pBio = [{t:`     I have recently completed my postgraduate degree in Master of Arts in Social Work (Dalit and Tribal Studies and Action) at the Tata Institute of Social Sciences (TISS), Mumbai. Prior to this, I completed my B.A. Honours in English and M.A. in English from Visva-Bharati University, Santiniketan, followed by my second master's at TISS. My academic journey has therefore developed across literature, social work, education, and social theory, with an increasing focus on caste, Buddhist thought, knowledge production, and social transformation. As a first-generation learner, this academic journey has been particularly formative for me, and I secured the first rank in my department at TISS. Alongside qualifying UGC-NET in both Social Work and Sociology for PhD admission, I have also qualified GATE in Humanities and Social Sciences (Sociology).`}];
+  if(L.tiss) pBio.push({link:L.tiss,label:"TISS"});
+  paras.push(pBio);
+
+  const pThesis = [{t:`     My Masters' dissertation, titled \u201cNavayana Buddhism: A Study of Its Relevance in Enhancing Higher Education among Dalits,\u201d examined B. R. Ambedkar's reinterpretation of Buddhism in relation to educational aspiration, dignity, knowledge, and social transformation among Dalit communities. The study was undertaken through a qualitative, hermeneutic-phenomenological approach, engaging with Ambedkarite and Navayana Buddhist communities. This work led me to a broader doctoral interest in understanding Navayana not simply as a religious conversion or doctrinal reinterpretation, but as a historically situated reconstruction of Buddhist thought in response to caste-based exclusion and the search for a more egalitarian social and ethical order.`}];
+  if(L.thesis) pThesis.push({link:L.thesis,label:"Dissertation"});
+  paras.push(pThesis);
+
+  const p4 = [{t:`     I have followed your work with particular interest, especially your research on ${interests}. I see a meaningful connection between your scholarship and my proposed research on Ambedkar's reconstruction of Buddhism as Navayana: both ask how traditions of thought are reinterpreted, transmitted, and reconstructed in response to particular social and historical conditions. `}];
+  if(remarks){ p4.push({t:`What moves me most in your work is this: `}); p4.push(...splitLinks(remarks)); p4.push({t:` `}); }
+  p4.push({t:`Your approach would offer an important perspective for developing my research beyond viewing Navayana only through the lens of modern Indian social reform.`});
+  paras.push(p4);
+
+  const p5 = [{t:`     I have prepared a research proposal outlining the questions, conceptual framework, and proposed scope of the doctoral project, which I would be grateful if you could consider. I remain fully open to modifying, narrowing, or further developing the research questions and theoretical framework in accordance with your academic guidance and the broader research environment at ${uni}. My intention is to carry this work forward carefully and responsibly, while allowing the doctoral project to develop through sustained scholarly engagement.`}];
+  if(L.prop) p5.push({link:L.prop,label:"Proposal"});
+  paras.push(p5);
+
+  paras.push([{t:`     I am also very keen to begin my doctoral studies at the earliest possible opportunity and am ${FUNDING[country]}. If, after considering my proposal, you feel that the project may be suitable for supervision, I would be sincerely grateful if you could kindly advise me regarding the appropriate application and funding routes and whether you might be willing to support my application as a prospective supervisor.`}]);
+
+  const p7 = [{t:`     I fully understand that supervisory availability and departmental requirements may affect the possibility of taking on new doctoral students. If you are unable to supervise the project, I would nevertheless be sincerely grateful if you could suggest another scholar or research group at ${uni} whose academic interests may be suitable for this research. I have attached my CV and would be glad to share any other material that may be useful for your consideration.`}];
+  if(L.cv) p7.push({link:L.cv,label:"CV"});
+  paras.push(p7);
+
+  paras.push([{t:`     Thank you very much for taking the time to read my email. I would be deeply grateful for any guidance you may be able to offer regarding the suitability of my research and the possibility of pursuing doctoral study at ${uni}.`}]);
+  paras.push([{t:`Sincere regards,`}]);
+  for(const line of ["Banani Sarkar","M.A. Social Work (Dalit and Tribal Studies and Action)","Tata Institute of Social Sciences (TISS), Mumbai, India","M.A. English Literature, Visva-Bharati, Santiniketan, India","Email: bananiofficial.tiss@gmail.com | m2024dta006@stud.tiss.ac.in","Mobile: +91 8016208232, +91 8637053870"])
+    paras.push([{t:line}]);
+  return { title, surname, paras };
+}
+function splitLinks(text){
+  const segs=[]; const re=/(https?:\/\/[^\s,;)]+)/g; let last=0,m;
+  while((m=re.exec(text))!==null){
+    if(m.index>last) segs.push({t:text.slice(last,m.index)});
+    segs.push({link:m[1],label:m[1].replace(/^https?:\/\//,"").slice(0,40)});
+    last=m.index+m[1].length;
+  }
+  if(last<text.length) segs.push({t:text.slice(last)});
+  return segs.length?segs:[{t:text}];
+}
+
+// ================= DOCX builder =================
+const CRC_TABLE=(()=>{const t=new Uint32Array(256);for(let n=0;n<256;n++){let c=n;for(let k=0;k<8;k++)c=c&1?0xEDB88320^(c>>>1):c>>>1;t[n]=c>>>0;}return t;})();
+function crc32(b){let c=0xFFFFFFFF;for(let i=0;i<b.length;i++)c=CRC_TABLE[(c^b[i])&0xFF]^(c>>>8);return (c^0xFFFFFFFF)>>>0;}
+function zipStore(files){
+  const enc=new TextEncoder();const chunks=[];const central=[];let offset=0;
+  const dosTime=0,dosDate=((2026-1980)<<9)|(9<<5)|19;
+  for(const f of files){
+    const nameB=enc.encode(f.name);const crc=crc32(f.data);const sz=f.data.length;
+    const lh=new Uint8Array(30+nameB.length);const dv=new DataView(lh.buffer);
+    dv.setUint32(0,0x04034b50,true);dv.setUint16(4,20,true);dv.setUint16(6,0,true);dv.setUint16(8,0,true);
+    dv.setUint16(10,dosTime,true);dv.setUint16(12,dosDate,true);dv.setUint32(14,crc,true);
+    dv.setUint32(18,sz,true);dv.setUint32(22,sz,true);dv.setUint16(26,nameB.length,true);dv.setUint16(28,0,true);
+    lh.set(nameB,30);chunks.push(lh,f.data);
+    const ch=new Uint8Array(46+nameB.length);const cv=new DataView(ch.buffer);
+    cv.setUint32(0,0x02014b50,true);cv.setUint16(4,20,true);cv.setUint16(6,20,true);cv.setUint16(8,0,true);cv.setUint16(10,0,true);
+    cv.setUint16(12,dosTime,true);cv.setUint16(14,dosDate,true);cv.setUint32(16,crc,true);
+    cv.setUint32(20,sz,true);cv.setUint32(24,sz,true);cv.setUint16(28,nameB.length,true);
+    cv.setUint32(42,offset,true);ch.set(nameB,46);central.push(ch);
+    offset+=lh.length+sz;
+  }
+  const cdStart=offset;let cdSize=0;central.forEach(c=>cdSize+=c.length);
+  const eocd=new Uint8Array(22);const ev=new DataView(eocd.buffer);
+  ev.setUint32(0,0x06054b50,true);ev.setUint16(8,files.length,true);ev.setUint16(10,files.length,true);
+  ev.setUint32(12,cdSize,true);ev.setUint32(16,cdStart,true);
+  return new Blob([...chunks,...central,eocd],{type:"application/vnd.openxmlformats-officedocument.wordprocessingml.document"});
+}
+function paraXml(segs,opts={}){
+  const spacing=opts.tight?`<w:spacing w:after="0" w:line="276" w:lineRule="auto"/>`:`<w:spacing w:after="200" w:line="276" w:lineRule="auto"/>`;
+  const rr=extra=>`<w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>${extra||""}</w:rPr>`;
+  let body="";const rels=[];
+  for(const s of segs){
+    if(s.link){
+      const rid="rIdH"+(rels.length+1);
+      rels.push(`<Relationship Id="${rid}" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/hyperlink" Target="${esc(s.link)}" TargetMode="External"/>`);
+      body+=`<w:hyperlink r:id="${rid}"><w:r>${rr(`<w:color w:val="0563C1"/><w:u w:val="single"/>`)}<w:t xml:space="preserve">${escX(s.label||s.link)}</w:t></w:r></w:hyperlink>`;
+    } else body+=`<w:r>${rr()}<w:t xml:space="preserve">${escX(s.t)}</w:t></w:r>`;
+  }
+  return {xml:`<w:p><w:pPr>${spacing}<w:jc w:val="both"/></w:pPr>${body}</w:p>`,rels};
+}
+function buildDocx(letter){
+  const xmlParts=[];const allRels=[];
+  letter.paras.forEach((segs,i)=>{const {xml,rels}=paraXml(segs,{tight:i>=letter.paras.length-7});xmlParts.push(xml);allRels.push(...rels);});
+  const document=`<?xml version="1.0" encoding="UTF-8" standalone="yes"?>\n<w:document xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships"><w:body>${xmlParts.join("")}<w:sectPr><w:pgSz w:w="11906" w:h="16838"/><w:pgMar w:top="1134" w:right="1134" w:bottom="1134" w:left="1134"/></w:sectPr></w:body></w:document>`;
+  const relsXml=`<?xml version="1.0" encoding="UTF-8" standalone="yes"?>\n<Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships">${allRels.join("")}</Relationships>`;
+  const ctypes=`<?xml version="1.0" encoding="UTF-8" standalone="yes"?>\n<Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types"><Default Extension="rels" ContentType="application/vnd.openxmlformats-package.relationships+xml"/><Default Extension="xml" ContentType="application/xml"/><Override PartName="/word/document.xml" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.document.main+xml"/></Types>`;
+  const rootRels=`<?xml version="1.0" encoding="UTF-8" standalone="yes"?>\n<Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships"><Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument" Target="word/document.xml"/></Relationships>`;
+  const enc=new TextEncoder();
+  return zipStore([
+    {name:"[Content_Types].xml",data:enc.encode(ctypes)},
+    {name:"_rels/.rels",data:enc.encode(rootRels)},
+    {name:"word/document.xml",data:enc.encode(document)},
+    {name:"word/_rels/document.xml.rels",data:enc.encode(relsXml)},
+  ]);
+}
+
+// ================= preview + actions =================
+function renderPreview(){
+  const L=buildLetter();
+  $("preview").innerHTML=L.paras.map(segs=>"<p style='margin:0 0 12px'>"+segs.map(s=>s.link?`<a href="${esc(s.link)}" target="_blank" rel="noopener">${esc(s.label||s.link)}</a>`:esc(s.t)).join("")+"</p>").join("");
+  return L;
+}
+function update(){ try{renderPreview();}catch(e){$("preview").textContent="preview error: "+e.message;} }
+["fName","fTitle","fUni","fDept","fField","fEmail","fCountry","fInterests","fRemarks","pCV","pTISS","pThesis","pProposal","pMode"].forEach(id=>$(id).addEventListener("input",update));
+update();
+
+$("goBtn").onclick=()=>{
+  const L=renderPreview();
+  const blob=buildDocx(L);
+  const a=document.createElement("a");
+  a.href=URL.createObjectURL(blob);
+  a.download=`Letter to ${L.title} ${L.surname}.docx`;
+  document.body.appendChild(a);a.click();a.remove();
+  setTimeout(()=>URL.revokeObjectURL(a.href),4000);
+  $("goStatus").textContent="Word file downloaded ✓";
+  setTimeout(()=>$("goStatus").textContent="",3000);
+};
+$("copyBtn").onclick=async()=>{
+  const L=renderPreview();
+  const txt=L.paras.map(segs=>segs.map(s=>s.link?(s.t?s.t+" ":"")+s.link:s.t).join("")).join("\n\n");
+  try{await navigator.clipboard.writeText(txt);$("goStatus").textContent="copied ✓";}
+  catch{const ta=document.createElement("textarea");ta.value=txt;document.body.appendChild(ta);ta.select();document.execCommand("copy");ta.remove();$("goStatus").textContent="copied ✓";}
+  setTimeout(()=>$("goStatus").textContent="",2000);
+};
 </script>
 </body>
 </html>
